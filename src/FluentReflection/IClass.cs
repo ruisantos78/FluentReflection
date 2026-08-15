@@ -33,6 +33,16 @@ public interface IClass
     IMethodAccessor Method(string name);
 
     /// <summary>
+    /// Gets an event accessor for the given event name.
+    /// </summary>
+    IEventAccessor Event(string name);
+
+    /// <summary>
+    /// Gets the invocation list of delegates subscribed to the event by name.
+    /// </summary>
+    Delegate[] GetInvocationList(string name);
+
+    /// <summary>
     /// Gets a field, property, or backing field value directly by member name.
     /// </summary>
     TValue Get<TValue>(string name);

@@ -26,6 +26,10 @@ internal class ClassWrapper : IClass
 
     public IMethodAccessor Method(string name) => new MethodAccessor(TargetType, TargetInstance, name);
 
+    public IEventAccessor Event(string name) => new EventAccessor(TargetType, TargetInstance, name);
+
+    public Delegate[] GetInvocationList(string name) => Event(name).GetInvocationList();
+
     public object? Get(string name) => Get<object?>(name);
 
     public TValue Get<TValue>(string name)

@@ -4,6 +4,17 @@
         <name>FluentReflection</name>
     </assembly>
     <members>
+        <member name="T:FluentReflection.Accessors.IEventAccessor">
+            <summary>
+            Fluent accessor for interacting with events and their subscribers.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IEventAccessor.GetInvocationList">
+            <summary>
+            Gets the invocation list of delegates subscribed to the event.
+            </summary>
+            <returns>An array of delegates representing the event subscribers, or an empty array if there are no subscribers.</returns>
+        </member>
         <member name="T:FluentReflection.Accessors.IFieldAccessor">
             <summary>
             Fluent accessor for reading and writing field values.
@@ -12,6 +23,11 @@
         <member name="M:FluentReflection.Accessors.IFieldAccessor.Get``1">
             <summary>
             Gets the field value cast to <typeparamref name="TValue"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IFieldAccessor.Get">
+            <summary>
+            Gets the field value as an object.
             </summary>
         </member>
         <member name="M:FluentReflection.Accessors.IFieldAccessor.Set(System.Object)">
@@ -52,6 +68,11 @@
         <member name="M:FluentReflection.Accessors.IPropertyAccessor.Get``1">
             <summary>
             Gets the property value cast to <typeparamref name="TValue"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IPropertyAccessor.Get">
+            <summary>
+            Gets the property value as an object.
             </summary>
         </member>
         <member name="M:FluentReflection.Accessors.IPropertyAccessor.Set(System.Object)">
@@ -144,9 +165,24 @@
             Gets a method accessor for the given method name.
             </summary>
         </member>
+        <member name="M:FluentReflection.IClass.Event(System.String)">
+            <summary>
+            Gets an event accessor for the given event name.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.GetInvocationList(System.String)">
+            <summary>
+            Gets the invocation list of delegates subscribed to the event by name.
+            </summary>
+        </member>
         <member name="M:FluentReflection.IClass.Get``1(System.String)">
             <summary>
             Gets a field, property, or backing field value directly by member name.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Get(System.String)">
+            <summary>
+            Gets a field, property, or backing field value directly by member name as an object.
             </summary>
         </member>
         <member name="M:FluentReflection.IClass.Set(System.String,System.Object)">

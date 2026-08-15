@@ -3,16 +3,16 @@
 [![Build & Test](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-A modern, expressive, and fluent .NET 10 framework designed for accessing private, internal, and public members (fields, auto-property backing fields, properties, and methods) using reflection. Created specifically to simplify unit testing by providing a clean, readable way to inspect and mutate encapsulated state and invoke non-public methods without verbose reflection boilerplate.
+A modern, expressive, and fluent .NET 10 framework designed for accessing private, internal, and public members (fields, auto-property backing fields, properties, methods, and events) using reflection. Created specifically to simplify unit testing by providing a clean, readable way to inspect and mutate encapsulated state, invoke non-public methods, and inspect event invocation lists without verbose reflection boilerplate.
 
 ---
-
 
 ## Key Features
 
 - 🚀 **Fluent API**: Expressive, chainable syntax for interacting with objects and static types.
 - 🔒 **Private Member Access**: Seamlessly read and write private fields, internal properties, and compiler-generated auto-property backing fields (`<Property>k__BackingField`).
 - ⚡ **Synchronous & Asynchronous Method Invocation**: Cleanly invoke `void`, returning, `Task`, and `Task<TResult>` methods without array wrapping boilerplate.
+- 📡 **Event Invocation Lists**: Inspect event subscribers and delegates on instance or static public/private events via `Event("Name").GetInvocationList()`.
 - 📦 **Type Discovery**: Easily resolve types by name from loaded assemblies or specific assemblies (`Class.From(...)`).
 - 🛠️ **Extension Method Ready**: Use `.AsClass()` directly on any object instance, `Type`, or `Assembly`.
 
@@ -25,7 +25,6 @@ Add the library reference to your `.csproj` or install via NuGet:
 ```bash
 dotnet add package FluentReflection.NET
 ```
-
 
 ---
 
@@ -86,6 +85,23 @@ Class.Of(sample).Field("_counter").Set(42);
 
 ---
 
+## Event Access & Invocation Lists
+
+Inspect event subscribers and backing delegates on instance or static events (including private events).
+
+```csharp
+// Direct shortcut to get subscribed delegates
+Delegate[] delegates = Class.Of(sample).GetInvocationList("OnStateChanged");
+
+// Via fluent event accessor
+Delegate[] delegates = Class.Of(sample).Event("OnStateChanged").GetInvocationList();
+
+// Works with static events as well
+Delegate[] staticDelegates = Class.Of<MyStaticClass>().GetInvocationList("OnGlobalEvent");
+```
+
+---
+
 ## Method Invocation
 
 Supports both instance and static methods, automatically binding method signatures based on target context and argument types.
@@ -123,18 +139,26 @@ public class Service
     private string _apiKey = "secret_key_123";
     public string ServiceStatus { get; private set; } = "Initializing";
 
+    public event EventHandler? StatusChanged;
+    private event Action<string>? LogEvent;
+
     private string CalculateToken(string user) => $"{_apiKey}_{user}";
     private async Task ProcessAsync() => await Task.Delay(10);
 }
 
 // In your tests or framework code:
 var service = new Service();
+service.StatusChanged += (sender, args) => Console.WriteLine("Status changed!");
 
 // Read private field using Class.Of
 string key = Class.Of(service).Get<string>("_apiKey");
 
 // Set private auto-property backing field using Class.Of
 Class.Of(service).Set("ServiceStatus", "Ready");
+
+// Inspect event invocation list
+Delegate[] subscribers = Class.Of(service).GetInvocationList("StatusChanged");
+Console.WriteLine($"Subscribers count: {subscribers.Length}"); // Output: 1
 
 // Invoke private method using Class.Of
 string token = Class.Of(service).Invoke<string>("CalculateToken", "Rui");
@@ -145,7 +169,6 @@ await Class.Of(service).InvokeAsync("ProcessAsync");
 // Or using .AsClass() extension
 string keyExt = service.AsClass().Get<string>("_apiKey");
 ```
-
 
 ---
 

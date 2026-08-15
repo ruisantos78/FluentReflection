@@ -98,3 +98,4 @@
 /Volumes/Users/ruisantos/Projects/fluent-reflection/tests/FluentReflection.Tests/obj/Debug/net10.0/FluentReflection.Tests.pdb
 /Volumes/Users/ruisantos/Projects/fluent-reflection/tests/FluentReflection.Tests/obj/Debug/net10.0/FluentReflection.Tests.genruntimeconfig.cache
 /Volumes/Users/ruisantos/Projects/fluent-reflection/tests/FluentReflection.Tests/obj/Debug/net10.0/ref/FluentReflection.Tests.dll
+/Volumes/Users/ruisantos/Projects/fluent-reflection/tests/FluentReflection.Tests/obj/Debug/net10.0/FluentReflection.Tests.sourcelink.json

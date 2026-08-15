@@ -8,10 +8,14 @@
 *.sln.docstates
 
 ## Build results
-[Bb]in/
-[Ob]j/
+bin/
+obj/
 out/
 build/
+**/bin/
+**/obj/
+**/out/
+**/build/
 
 ## NuGet
 *.nupkg

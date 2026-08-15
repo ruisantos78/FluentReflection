@@ -11,3 +11,4 @@
 /Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/obj/Debug/net10.0/FluentReflection.xml
 /Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/obj/Debug/net10.0/FluentReflection.pdb
 /Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/obj/Debug/net10.0/ref/FluentReflection.dll
+/Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/obj/Debug/net10.0/FluentReflection.sourcelink.json

@@ -5,10 +5,10 @@
   },
   "projects": {
     "/Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/FluentReflection.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.0.3",
       "restore": {
         "projectUniqueName": "/Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/FluentReflection.csproj",
-        "projectName": "FluentReflection",
+        "projectName": "FluentReflection.NET",
         "projectPath": "/Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/FluentReflection.csproj",
         "packagesPath": "/Volumes/Users/ruisantos/.nuget/packages/",
         "outputPath": "/Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/obj/",
