@@ -11,6 +11,11 @@ public interface IFieldAccessor
     TValue Get<TValue>();
 
     /// <summary>
+    /// Gets the field value as an object.
+    /// </summary>
+    object? Get();
+
+    /// <summary>
     /// Sets the field value.
     /// </summary>
     void Set(object? value);
@@ -23,6 +28,8 @@ internal class FieldAccessor(Type targetType, object? instance, string name) : I
         System.Reflection.BindingFlags.Public | 
         (instance is null ? System.Reflection.BindingFlags.Static : System.Reflection.BindingFlags.Instance);
 
+
+    public object? Get() => Get<object?>();
 
     public TValue Get<TValue>()
     {

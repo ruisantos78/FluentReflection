@@ -11,6 +11,11 @@ public interface IPropertyAccessor
     TValue Get<TValue>();
 
     /// <summary>
+    /// Gets the property value as an object.
+    /// </summary>
+    object? Get();
+
+    /// <summary>
     /// Sets the property value.
     /// </summary>
     void Set(object? value);
@@ -23,6 +28,8 @@ internal class PropertyAccessor(Type targetType, object? instance, string name) 
         System.Reflection.BindingFlags.Public | 
         (instance is null ? System.Reflection.BindingFlags.Static : System.Reflection.BindingFlags.Instance);
 
+
+    public object? Get() => Get<object?>();
 
     public TValue Get<TValue>()
     {

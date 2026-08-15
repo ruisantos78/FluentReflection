@@ -26,6 +26,8 @@ internal class ClassWrapper : IClass
 
     public IMethodAccessor Method(string name) => new MethodAccessor(TargetType, TargetInstance, name);
 
+    public object? Get(string name) => Get<object?>(name);
+
     public TValue Get<TValue>(string name)
     {
         var members = TargetType.GetMember(name, System.Reflection.MemberTypes.Field | System.Reflection.MemberTypes.Property, _flags);

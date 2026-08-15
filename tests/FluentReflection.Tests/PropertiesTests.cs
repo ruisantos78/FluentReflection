@@ -40,6 +40,15 @@ public class PropertiesTests
     }
 
     [Fact]
+    public void NonGenericGet_AutoProperty_WorksCorrectly()
+    {
+        var target = new Target();
+
+        Assert.Equal("initial_auto", Class.Of(target).Get("AutoProp"));
+        Assert.Equal("initial_auto", Class.Of(target).Property("AutoProp").Get());
+    }
+
+    [Fact]
     public void Get_CustomProperty_WorksCorrectly()
     {
         var target = new Target();

@@ -38,6 +38,11 @@ public interface IClass
     TValue Get<TValue>(string name);
 
     /// <summary>
+    /// Gets a field, property, or backing field value directly by member name as an object.
+    /// </summary>
+    object? Get(string name);
+
+    /// <summary>
     /// Sets a field, property, or backing field value directly by member name.
     /// </summary>
     void Set(string name, object? value);

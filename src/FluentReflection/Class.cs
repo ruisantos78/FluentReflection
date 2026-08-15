@@ -33,7 +33,7 @@ public static class Class
     /// <summary>
     /// Creates a fluent wrapper for an instance object enforcing a explicit target type <typeparamref name="TClass"/>.
     /// </summary>
-    public static IClass Of<TClass>(object instance) => new ClassWrapper(typeof(TClass), instance);
+    public static IClass Of<TClass>(TClass instance) => new ClassWrapper(typeof(TClass), instance);
 
     /// <summary>
     /// Searches for a type by name across all currently loaded assemblies in the current AppDomain and creates a fluent wrapper.
