@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FluentReflection</name>
+    </assembly>
+    <members>
+        <member name="T:FluentReflection.Accessors.IFieldAccessor">
+            <summary>
+            Fluent accessor for reading and writing field values.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IFieldAccessor.Get``1">
+            <summary>
+            Gets the field value cast to <typeparamref name="TValue"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IFieldAccessor.Set(System.Object)">
+            <summary>
+            Sets the field value.
+            </summary>
+        </member>
+        <member name="T:FluentReflection.Accessors.IMethodAccessor">
+            <summary>
+            Fluent accessor for invoking synchronous and asynchronous methods.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IMethodAccessor.Invoke(System.Object[])">
+            <summary>
+            Invokes a void-returning method.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IMethodAccessor.Invoke``1(System.Object[])">
+            <summary>
+            Invokes a method returning <typeparamref name="TResult"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IMethodAccessor.InvokeAsync(System.Object[])">
+            <summary>
+            Invokes an asynchronous method returning <see cref="T:System.Threading.Tasks.Task"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IMethodAccessor.InvokeAsync``1(System.Object[])">
+            <summary>
+            Invokes an asynchronous method returning <see cref="T:System.Threading.Tasks.Task`1"/>.
+            </summary>
+        </member>
+        <member name="T:FluentReflection.Accessors.IPropertyAccessor">
+            <summary>
+            Fluent accessor for reading and writing property values.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IPropertyAccessor.Get``1">
+            <summary>
+            Gets the property value cast to <typeparamref name="TValue"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Accessors.IPropertyAccessor.Set(System.Object)">
+            <summary>
+            Sets the property value.
+            </summary>
+        </member>
+        <member name="T:FluentReflection.Class">
+            <summary>
+            Static factory class providing entry points to FluentReflection.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Class.Of(System.Object)">
+            <summary>
+            Creates a fluent wrapper for an instance object.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Class.Of(System.Type)">
+            <summary>
+            Creates a fluent wrapper for a target static type.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Class.Of``1">
+            <summary>
+            Creates a fluent wrapper for a generic type <typeparamref name="TClass"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Class.Of``1(System.Object)">
+            <summary>
+            Creates a fluent wrapper for an instance object enforcing a explicit target type <typeparamref name="TClass"/>.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Class.From(System.String)">
+            <summary>
+            Searches for a type by name across all currently loaded assemblies in the current AppDomain and creates a fluent wrapper.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Class.From(System.Reflection.Assembly,System.String)">
+            <summary>
+            Searches for a type by name in a specific assembly and creates a fluent wrapper.
+            </summary>
+        </member>
+        <member name="T:FluentReflection.Extensions.ObjectExtensions">
+            <summary>
+            Fluent extension methods for objects, types, and assemblies.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Extensions.ObjectExtensions.AsClass(System.Object)">
+            <summary>
+            Wraps an instance object into an <see cref="T:FluentReflection.IClass"/> fluent reflection wrapper.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Extensions.ObjectExtensions.AsClass(System.Type)">
+            <summary>
+            Wraps a <see cref="T:System.Type"/> into an <see cref="T:FluentReflection.IClass"/> fluent reflection wrapper.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.Extensions.ObjectExtensions.AsClass(System.Reflection.Assembly,System.String)">
+            <summary>
+            Searches for a type in the given <see cref="T:System.Reflection.Assembly"/> by name and returns an <see cref="T:FluentReflection.IClass"/> wrapper.
+            </summary>
+        </member>
+        <member name="T:FluentReflection.IClass">
+            <summary>
+            Fluent interface for interacting with members of a class or instance using reflection.
+            </summary>
+        </member>
+        <member name="P:FluentReflection.IClass.TargetType">
+            <summary>
+            Gets the target type being reflected upon.
+            </summary>
+        </member>
+        <member name="P:FluentReflection.IClass.TargetInstance">
+            <summary>
+            Gets the target instance object (or null for static access).
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Property(System.String)">
+            <summary>
+            Gets a property accessor for the given property name.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Field(System.String)">
+            <summary>
+            Gets a field accessor for the given field name.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Method(System.String)">
+            <summary>
+            Gets a method accessor for the given method name.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Get``1(System.String)">
+            <summary>
+            Gets a field, property, or backing field value directly by member name.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Set(System.String,System.Object)">
+            <summary>
+            Sets a field, property, or backing field value directly by member name.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Invoke(System.String,System.Object[])">
+            <summary>
+            Invokes a void method by name with optional arguments.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.Invoke``1(System.String,System.Object[])">
+            <summary>
+            Invokes a returning method by name with optional arguments.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.InvokeAsync(System.String,System.Object[])">
+            <summary>
+            Invokes an asynchronous Task method by name with optional arguments.
+            </summary>
+        </member>
+        <member name="M:FluentReflection.IClass.InvokeAsync``1(System.String,System.Object[])">
+            <summary>
+            Invokes an asynchronous Task&lt;TResult&gt; method by name with optional arguments.
+            </summary>
+        </member>
+    </members>
+</doc>
