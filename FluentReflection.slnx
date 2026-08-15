@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FluentReflection/FluentReflection.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/FluentReflection.Tests/FluentReflection.Tests.csproj" />
+  </Folder>
+</Solution>

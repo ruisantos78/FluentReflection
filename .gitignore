@@ -1,0 +1,28 @@
+## Ignore Visual Studio / VS Code / Rider temporary files & directories
+.vs/
+.idea/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Bb]in/
+[Ob]j/
+out/
+build/
+
+## NuGet
+*.nupkg
+*.snupkg
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.assets.json
+
+## OS generated files
+.DS_Store
+.DS_Store?
+ehthumbs.db
+Thumbs.db
