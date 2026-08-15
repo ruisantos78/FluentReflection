@@ -7,8 +7,9 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     
     <!-- Package Metadata -->
-    <PackageId>FluentReflection</PackageId>
+    <PackageId>FluentReflection.NET</PackageId>
     <Version>1.0.0</Version>
+
     <Authors>Rui Santos</Authors>
     <Company>FluentReflection</Company>
     <Description>A fluent, intuitive .NET 10 library designed to simplify unit testing by providing an expressive way to access private, internal, and public members (fields, backing fields, properties, methods) using reflection.</Description>

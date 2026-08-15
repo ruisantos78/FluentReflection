@@ -16,7 +16,7 @@ using System.Reflection;
     "g an expressive way to access private, internal, and public members (fields, bac" +
     "king fields, properties, methods) using reflection."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f44379479883e6d0420fd3c99000ec02dee9995")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b242f4ff9a750d4fa6d378a63b73eb6dc82cf21e")]
 [assembly: System.Reflection.AssemblyProductAttribute("FluentReflection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FluentReflection")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

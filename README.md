@@ -23,8 +23,9 @@ A modern, expressive, and fluent .NET 10 framework designed for accessing privat
 Add the library reference to your `.csproj` or install via NuGet:
 
 ```bash
-dotnet add package FluentReflection
+dotnet add package FluentReflection.NET
 ```
+
 
 ---
 
