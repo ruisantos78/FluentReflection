@@ -8,7 +8,7 @@
     
     <!-- Package Metadata -->
     <PackageId>FluentReflection.NET</PackageId>
-    <Version>1.0.0.4</Version>
+    <Version>1.0.0.5</Version>
 
     <Authors>Rui Santos</Authors>
     <Company>FluentReflection</Company>
@@ -17,14 +17,13 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
-    <ProjectUrl>https://ruisantos78.github.io/FluentReflection/</ProjectUrl>
+    <PackageProjectUrl>https://ruisantos78.github.io/FluentReflection/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ruisantos78/FluentReflection</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\README.md" Pack="true" PackagePath="\" />
     <None Include="icon.png" Pack="true" PackagePath="\" />
-    <None Include="icon.svg" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 

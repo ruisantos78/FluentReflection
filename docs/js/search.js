@@ -89,4 +89,58 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (ev) {
     if (!results.contains(ev.target) && ev.target !== input) results.hidden = true;
   });
+
+  // Tab switching logic
+  document.querySelectorAll(".install-tabs .package-manager-tab").forEach(function (tab) {
+    tab.addEventListener("click", function (e) {
+      e.preventDefault();
+      var targetId = tab.getAttribute("href").substring(1);
+      var container = tab.closest(".install-tabs");
+
+      container.querySelectorAll(".nav-tabs li").forEach(function (li) {
+        li.classList.remove("active");
+        var link = li.querySelector("a");
+        if (link) {
+          link.setAttribute("aria-selected", "false");
+          link.setAttribute("tabindex", "-1");
+        }
+      });
+
+      tab.parentElement.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+      tab.setAttribute("tabindex", "0");
+
+      container.querySelectorAll(".tab-pane").forEach(function (pane) {
+        if (pane.id === targetId) {
+          pane.classList.add("active");
+        } else {
+          pane.classList.remove("active");
+        }
+      });
+    });
+  });
+
+  // Copy button logic
+  document.querySelectorAll(".copy-button button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var row = btn.closest(".install-script-row");
+      if (!row) return;
+      var script = row.querySelector(".install-script");
+      if (!script) return;
+
+      var textToCopy = script.textContent.replace("Copy", "").trim();
+      navigator.clipboard.writeText(textToCopy).then(function () {
+        var span = btn.querySelector("span:last-child");
+        var originalText = span ? span.textContent : "Copy";
+        if (span) span.textContent = "Copied!";
+        btn.classList.add("copied");
+        setTimeout(function () {
+          if (span) span.textContent = originalText;
+          btn.classList.remove("copied");
+        }, 2000);
+      }).catch(function (err) {
+        console.error("Copy failed: ", err);
+      });
+    });
+  });
 });

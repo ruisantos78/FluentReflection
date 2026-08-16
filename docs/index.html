@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FluentReflection.NET API Documentation</title>
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="icon.png" type="image/png">
 <link rel="stylesheet" href="style.css">
 <script src="js/search.js" defer></script>
 </head>
 <body>
 <header>
   <div class="header-inner">
-    <img class="logo" src="icon.svg" alt="FluentReflection.NET">
+    <img class="logo" src="icon.png" alt="FluentReflection.NET">
     <div>
       <h1>FluentReflection.NET</h1>
       <p>Fluent, intuitive reflection API for .NET 10 unit testing.</p>
@@ -93,13 +93,178 @@
      no internal constructors or <code>[InternalsVisibleTo]</code> required.</p>
 
   <div class="card install">
-    <img class="install-logo" src="icon.svg" alt="FluentReflection.NET">
     <div class="install-body">
       <h3>Install from NuGet</h3>
-      <p>Package: <a href="https://www.nuget.org/packages/FluentReflection.NET">FluentReflection.NET</a></p>
-      <pre><code>dotnet add package FluentReflection.NET</code></pre>
-      <p class="emphasized"><b>Package Manager Console</b></p>
-      <pre><code>Install-Package FluentReflection.NET</code></pre>
+      <p>Package: <a href="https://www.nuget.org/packages/FluentReflection.NET" target="_blank" rel="noopener">FluentReflection.NET</a></p>
+      
+      <div class="install-tabs">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#dotnet-cli" id="dotnet-cli-tab" class="package-manager-tab" aria-selected="true" tabindex="0" aria-controls="dotnet-cli" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for .NET CLI">.NET CLI</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#package-manager" id="package-manager-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="package-manager" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Package Manager Console">PMC</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#package-reference" id="package-reference-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="package-reference" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for PackageReference">PackageReference</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#package-version" id="package-version-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="package-version" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Central Package Management">CPM</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#paket-cli" id="paket-cli-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="paket-cli" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Paket CLI">Paket CLI</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#script-interactive" id="script-interactive-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="script-interactive" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Script &amp; Interactive">Script &amp; Interactive</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#dotnet-run-file" id="dotnet-run-file-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="dotnet-run-file" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for File-Based Apps">File-Based Apps</a>
+          </li>
+          <li role="presentation" class="">
+            <a href="#cake" id="cake-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="cake" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Cake">Cake</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="dotnet-cli">
+            <div class="install-script-row">
+              <pre class="install-script" id="dotnet-cli-0001-text"><span class="install-command-row">dotnet add package FluentReflection.NET --version 1.0.0.5</span></pre>
+              <div class="copy-button">
+                <button id="dotnet-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the .NET CLI command" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="package-manager">
+            <div class="install-script-row">
+              <pre class="install-script" id="package-manager-0001-text"><span class="install-command-row">NuGet\Install-Package FluentReflection.NET -Version 1.0.0.5</span></pre>
+              <div class="copy-button">
+                <button id="package-manager-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PMC command" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="icon-text alert alert-brand-info">
+              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+              This command is intended to be used within the Package Manager Console in Visual Studio, as it uses the NuGet module's version of <a href="https://docs.microsoft.com/nuget/reference/ps-reference/ps-ref-install-package" target="_blank" rel="noopener">Install-Package</a>.
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="package-reference">
+            <div class="install-script-row">
+              <pre class="install-script" id="package-reference-0001-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" Version="1.0.0.5" /&gt;</span></pre>
+              <div class="copy-button">
+                <button id="package-reference-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageReference XML node" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="icon-text alert alert-brand-info">
+              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+              For projects that support <a href="https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files" target="_blank" rel="noopener">PackageReference</a>, copy this XML node into the project file to reference the package.
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="package-version">
+            <div class="install-script-row">
+              <pre class="install-script" id="package-version-0001-text"><span class="install-command-row">&lt;PackageVersion Include="FluentReflection.NET" Version="1.0.0.5" /&gt;</span></pre>
+              <div class="copy-button">
+                <span class="package-manager-command-header">Directory.Packages.props</span>
+                <button id="package-version-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageVersion XML node" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="install-script-row">
+              <pre class="install-script" id="package-version-0002-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" /&gt;</span></pre>
+              <div class="copy-button">
+                <span class="package-manager-command-header">Project file</span>
+                <button id="package-version-0002-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageVersion XML node" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="icon-text alert alert-brand-info">
+              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+              For projects that support <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management" target="_blank" rel="noopener">Central Package Management (CPM)</a>, copy this XML node into the solution Directory.Packages.props file to version the package.
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="paket-cli">
+            <div class="install-script-row">
+              <pre class="install-script" id="paket-cli-0001-text"><span class="install-command-row">paket add FluentReflection.NET --version 1.0.0.5</span></pre>
+              <div class="copy-button">
+                <button id="paket-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Paket CLI command" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="icon-text alert alert-brand-warning" role="alert" aria-live="assertive">
+              <i class="ms-Icon ms-Icon--Warning" aria-hidden="true"></i>
+              The NuGet Team does not provide support for this client. Please contact its <a href="https://fsprojects.github.io/Paket/contact.html" target="_blank" rel="noopener" aria-label="Contact the maintainers of the Paket CLI client">maintainers</a> for support.
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="script-interactive">
+            <div class="install-script-row">
+              <pre class="install-script" id="script-interactive-0001-text"><span class="install-command-row">#r "nuget: FluentReflection.NET, 1.0.0.5"</span></pre>
+              <div class="copy-button">
+                <button id="script-interactive-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Script &amp; Interactive command" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="icon-text alert alert-brand-info">
+              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+              #r directive can be used in F# Interactive and Polyglot Notebooks. Copy this into the interactive tool or source code of the script to reference the package.
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="dotnet-run-file">
+            <div class="install-script-row">
+              <pre class="install-script" id="dotnet-run-file-0001-text"><span class="install-command-row">#:package FluentReflection.NET@1.0.0.5</span></pre>
+              <div class="copy-button">
+                <button id="dotnet-run-file-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the File-Based Apps command" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="icon-text alert alert-brand-info">
+              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
+              #:package directive can be used in C# file-based apps starting in .NET 10 preview 4. Copy this into a .cs file before any lines of code to reference the package.
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="cake">
+            <div class="install-script-row">
+              <pre class="install-script" id="cake-0001-text"><span class="install-command-row">#addin nuget:?package=FluentReflection.NET&amp;version=1.0.0.5</span></pre>
+              <div class="copy-button">
+                <span class="package-manager-command-header">Install as a Cake Addin</span>
+                <button id="cake-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="install-script-row">
+              <pre class="install-script" id="cake-0002-text"><span class="install-command-row">#tool nuget:?package=FluentReflection.NET&amp;version=1.0.0.5</span></pre>
+              <div class="copy-button">
+                <span class="package-manager-command-header">Install as a Cake Tool</span>
+                <button id="cake-0002-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
+                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
+                  <span>Copy</span>
+                </button>
+              </div>
+            </div>
+            <div class="icon-text alert alert-brand-warning" role="alert" aria-live="assertive">
+              <i class="ms-Icon ms-Icon--Warning" aria-hidden="true"></i>
+              The NuGet Team does not provide support for this client. Please contact its <a href="https://cakebuild.net/support/nuget" target="_blank" rel="noopener" aria-label="Contact the maintainers of the Cake client">maintainers</a> for support.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -9,7 +9,7 @@
   - `ClassWrapper.cs`: Core reflection implementation wrapping types and instances.
   - `Accessors/`: Member access interfaces (`IFieldAccessor`, `IPropertyAccessor`, etc.).
   - `Extensions/`: Fluent extension methods for member discovery and invocation.
-  - `icon.png` & `icon.svg`: Package icons.
+  - `icon.png`: Package icon.
 - **`tests/FluentReflection.Tests/`**: Unit test suite powered by `net10.0` and xUnit.
 
 ## Build, Test & Package Commands
@@ -25,7 +25,7 @@
 
 ## Packaging & Releases
 - Package ID: `FluentReflection.NET`
-- Always verify both `icon.png` and `icon.svg` are included when updating NuGet metadata in `FluentReflection.csproj`.
+- Always verify `icon.png` is included when updating NuGet metadata in `FluentReflection.csproj`.
 - Ensure all unit tests pass via `dotnet test` prior to bumping version or creating release tags.
 
 ## Release & Versioning Workflow
