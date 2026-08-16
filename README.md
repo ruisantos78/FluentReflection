@@ -2,6 +2,9 @@
 
 [![Build & Test](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Documentation](https://img.shields.io/badge/docs-online-purple.svg)](https://ruisantos78.github.io/FluentReflection/)
+
+Full API documentation: <https://ruisantos78.github.io/FluentReflection/>
 
 A modern, expressive, and fluent .NET 10 framework designed for accessing private, internal, and public members (fields, auto-property backing fields, properties, methods, and events) using reflection. Created specifically to simplify unit testing by providing a clean, readable way to inspect and mutate encapsulated state, invoke non-public methods, and inspect event invocation lists without verbose reflection boilerplate.
 
