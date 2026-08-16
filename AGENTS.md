@@ -11,30 +11,34 @@
   - `Extensions/`: Fluent extension methods for member discovery and invocation.
   - `icon.png`: Package icon.
 - **`tests/FluentReflection.Tests/`**: Unit test suite powered by `net10.0` and xUnit.
-- **`docs/`**: Hand-authored HTML API documentation site (mirrors the public API surface). Each public type has a directory under `docs/`, with one HTML page per member plus an `index.html`. All pages share a common sidebar listing every type and member.
+- **`docs/`**: Static **single-page application (SPA)** documentation site (mirrors the public API surface). It is pure HTML + client-side JS + JSON — **no build step, no Python/Node at runtime**. GitHub Pages serves `docs/` directly and the browser fetches the JSON data. All content lives in data files:
+  - `docs/index.html` — the single HTML shell (header, version dropdown, sidebar container, content area).
+  - `docs/js/app.js` — the SPA: loads `data/*.json`, builds the sidebar, routes by URL hash (`#/TypeName` and `#/TypeName/member`), renders pages, applies version filtering, and powers search.
+  - `docs/data/api.js` — registry global `window.FR_API`: `versions` (descending), `current`, `namespaces` (ordered), and `install` metadata.
+  - `docs/data/<TypeName>.js` — one file per public type; assigns `window.FR_TYPES["<TypeName>"]` with `name`, `namespace`, `kind`, `since`, `declaration`, `overline`, ordered `sections` (HTML), `members[]`, and `properties[]`.
+  - `docs/scripts/convert.py` — dev-time only: one-off migration script that parsed the original static HTML into the JS data. Not used at runtime.
+  - `docs/style.css`, `docs/icon.png`.
 
 ## Documentation Duty
-**Always keep the `docs/` folder in sync with the source code.** Whenever you create, remove, or update a public class, interface, property, or method, you must reflect that change in the HTML docs. Specifically:
+**Always keep the `docs/` data files in sync with the source code.** Because the site is data-driven, adding/removing a class or member touches only the JS data files (plus the registry) — not every page. Whenever you create, remove, or update a public class, interface, property, or method:
 
-1. **New public type** → create a `docs/<TypeName>/` directory with an `index.html` and one page per member, and add a link in the home `docs/index.html` Types table.
-2. **New public member** → create a `docs/<TypeName>/<member>.html` page and add a sidebar entry in **every** page (all pages share the sidebar).
-3. **Removed public type or member** → delete the corresponding HTML page(s) and remove all sidebar links and table rows referencing them.
-4. **Changed signature/behavior** → update the relevant HTML page(s) (title, declaration, description, exceptions) and any affected sidebar text.
-5. **XML doc comments in source** and the hand-authored HTML docs must stay consistent.
+1. **New public type** → create `docs/data/<TypeName>.js` and add it (under the correct namespace) to the `namespaces` array in `docs/data/api.js`.
+2. **New public member** → add an entry to the `members` array (or `properties` array) of the type's `docs/data/<TypeName>.js`. It appears automatically in the sidebar, the type's methods table, and search.
+3. **Removed public type or member** → delete it from the corresponding JS data file(s) and from `api.js`'s `namespaces`.
+4. **Changed signature/behavior** → update the type/member's `declaration`, `sections` (Definition/Parameters/Returns/Remarks/Exceptions), and description in the data.
+5. **XML doc comments in source** and the JS data must stay consistent.
 
-When in doubt, run a link check (e.g. grep the sidebar) to confirm no page references a missing file after your edits.
+The `sections` array stores HTML fragments (paragraphs, tables) rendered verbatim by `app.js`, preserving rich formatting. Follow the schema already present in existing `data/*.js` files.
 
 ### Version Metadata Rules (always apply when editing docs)
-Every page is versioned so a reader can select a version in the header dropdown and filter out members that did not exist yet. Whenever you add, remove, or update a public type/member, apply these rules:
+Every type/member carries a `since` version so a reader can select a version in the header dropdown and hide members that did not exist yet. Whenever you add, remove, or update a public type/member, apply these rules:
 
-1. **New type or member** → assign it the **next unreleased version** as its "since" version (the `<Version>` currently in `src/FluentReflection/FluentReflection.csproj`, before it is bumped), e.g. `1.0.0.6`.
-2. **`since-version` meta** → every HTML page must carry `<meta name="since-version" content="X.Y.Z.W">` in its `<head>`, equal to the version that introduced that page's type/member. Index pages use the type's since-version; the home `docs/index.html` uses the latest version.
-3. **`data-since` attributes** → every sidebar type link (`a.cls`), sidebar member link (`a.meth`), type `<details>` block, index table `<tr>`, and detailed member `<div class="member">` must carry `data-since="X.Y.Z.W"` so the JS can hide it for older selections.
-4. **Version list** → keep `docs/js/version.js`'s `VERSIONS` array up to date, always adding the newest version at the front (descending order). New members are introduced at that newest version.
-5. **Removed type/member** → remove its page(s), its sidebar `data-since` links and table rows, and any stale `since-version`/`data-since` references.
-6. **Verified after editing** → confirm: the dropdown loads (`docs/index.html` uses `js/version.js`, subpages use `../js/version.js`), every page has a `since-version` meta, no `data-since` is empty, and no page links to a missing file.
+1. **New type or member** → set its `since` field to the **next unreleased version** (the `<Version>` currently in `src/FluentReflection/FluentReflection.csproj`, before it is bumped), e.g. `1.0.0.6`.
+2. **New version released** → prepend it to the `versions` array in `docs/data/api.js` (descending order, newest first) and update `current`. New members introduced that release carry that version as their `since`.
+3. **Removed type/member** → remove its entry from the data and from `api.js`'s `namespaces`.
+4. **Verified after editing** → confirm: `docs/data/api.js` and every `docs/data/*.js` define valid globals (e.g. load `docs/index.html` locally or in the browser), no `since` is empty, and every entry's `name`/`members` are routable. The SPA filters sidebar, tables, and search by `since` against the selected version automatically.
 
-The version rules above complement the release workflow: the since-version of new docs matches the version that will be released from `main` (see Release & Versioning Workflow below).
+The version rules above complement the release workflow: the `since` of new docs matches the version that will be released from `main` (see Release & Versioning Workflow below).
 
 ## Build, Test & Package Commands
 - **Build Solution**: `dotnet build`

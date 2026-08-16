@@ -3,308 +3,47 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="since-version" content="1.0.0.0">
 <meta name="documentation-version" content="1.0.0.6">
-<meta name="description" content="FluentReflection.NET v1.0.0.6 API reference. Updated with every release.">
+<meta name="description" content="FluentReflection.NET API reference. Single-page documentation updated with every release.">
 <title>FluentReflection.NET API Documentation</title>
 <link rel="icon" href="icon.png" type="image/png">
 <link rel="stylesheet" href="style.css">
-<script src="js/search.js" defer></script>
-<script src="js/version.js" defer></script>
+<script src="data/api.js"></script>
+<script src="data/Class.js"></script>
+<script src="data/IClass.js"></script>
+<script src="data/IEventAccessor.js"></script>
+<script src="data/IFieldAccessor.js"></script>
+<script src="data/IMethodAccessor.js"></script>
+<script src="data/IPropertyAccessor.js"></script>
+<script src="data/ObjectExtensions.js"></script>
+<script src="js/app.js" defer></script>
 </head>
 <body>
 <header>
   <div class="header-inner">
     <img class="logo" src="icon.png" alt="FluentReflection.NET">
     <div>
-      <h1>FluentReflection.NET</h1>
+      <h1><a class="brand" href="#/">FluentReflection.NET</a></h1>
       <p>Fluent, intuitive reflection API for .NET 10 unit testing.</p>
-<div class="version-controls">
-    <label for="version-select">Version:</label>
-    <select id="version-select" aria-label="Documentation version"></select>
-  </div>
+      <div class="version-controls">
+        <label for="version-select">Version:</label>
+        <select id="version-select" aria-label="Documentation version"></select>
       </div>
+    </div>
+  </div>
 </header>
 <div class="layout">
 <nav class="sidebar">
   <div class="search-wrap"><input id="search" type="text" placeholder="Search API..." autocomplete="off" aria-label="Search"><div id="search-results" class="search-results" hidden></div></div>
-  <a class="home" href="index.html">&#127968; Home</a>
-  <div class="ns-label">FluentReflection</div>
-  <details data-since="1.0.0.0"><summary><a class="cls" href="Class/index.html" data-since="1.0.0.0">Class</a></summary>
-    <div class="tree-branch">
-      <a class="meth" href="Class/of-object.html" data-since="1.0.0.0">Of(object instance)</a>
-      <a class="meth" href="Class/of-type.html" data-since="1.0.0.0">Of(Type type)</a>
-      <a class="meth" href="Class/of-tclass.html" data-since="1.0.0.0">Of&lt;TClass&gt;()</a>
-      <a class="meth" href="Class/of-tclass-object.html" data-since="1.0.0.0">Of&lt;TClass&gt;(object instance)</a>
-      <a class="meth" href="Class/from-string.html" data-since="1.0.0.0">From(string typeName)</a>
-      <a class="meth" href="Class/from-assembly-string.html" data-since="1.0.0.0">From(Assembly assembly, string typeName)</a>
-    </div>
-  </details>
-  <details data-since="1.0.0.0"><summary><a class="cls" href="IClass/index.html" data-since="1.0.0.0">IClass</a></summary>
-    <div class="tree-branch">
-      <a class="meth" href="IClass/property.html" data-since="1.0.0.0">Property(string name)</a>
-      <a class="meth" href="IClass/field.html" data-since="1.0.0.0">Field(string name)</a>
-      <a class="meth" href="IClass/method.html" data-since="1.0.0.0">Method(string name)</a>
-      <a class="meth" href="IClass/event.html" data-since="1.0.0.3">Event(string name)</a>
-      <a class="meth" href="IClass/getinvocationlist.html" data-since="1.0.0.3">GetInvocationList(string name)</a>
-      <a class="meth" href="IClass/get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;(string name)</a>
-      <a class="meth" href="IClass/get-object.html" data-since="1.0.0.1">Get(string name)</a>
-      <a class="meth" href="IClass/set.html" data-since="1.0.0.0">Set(string name, object? value)</a>
-      <a class="meth" href="IClass/invoke.html" data-since="1.0.0.0">Invoke(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/invoke-tresult.html" data-since="1.0.0.0">Invoke&lt;TResult&gt;(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/invokeasync.html" data-since="1.0.0.0">InvokeAsync(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/invokeasync-tresult.html" data-since="1.0.0.0">InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
-    </div>
-  </details>
-  <div class="ns-label">FluentReflection.Accessors</div>
-  <details data-since="1.0.0.0"><summary><a class="cls" href="IFieldAccessor/index.html" data-since="1.0.0.0">IFieldAccessor</a></summary>
-    <div class="tree-branch">
-      <a class="meth" href="IFieldAccessor/get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;()</a>
-      <a class="meth" href="IFieldAccessor/get-object.html" data-since="1.0.0.1">Get()</a>
-      <a class="meth" href="IFieldAccessor/set.html" data-since="1.0.0.0">Set(object? value)</a>
-      <a class="meth" href="IFieldAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
-    </div>
-  </details>
-  <details data-since="1.0.0.0"><summary><a class="cls" href="IPropertyAccessor/index.html" data-since="1.0.0.0">IPropertyAccessor</a></summary>
-    <div class="tree-branch">
-      <a class="meth" href="IPropertyAccessor/get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;()</a>
-      <a class="meth" href="IPropertyAccessor/get-object.html" data-since="1.0.0.1">Get()</a>
-      <a class="meth" href="IPropertyAccessor/set.html" data-since="1.0.0.0">Set(object? value)</a>
-      <a class="meth" href="IPropertyAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
-    </div>
-  </details>
-  <details data-since="1.0.0.0"><summary><a class="cls" href="IMethodAccessor/index.html" data-since="1.0.0.0">IMethodAccessor</a></summary>
-    <div class="tree-branch">
-      <a class="meth" href="IMethodAccessor/invoke.html" data-since="1.0.0.0">Invoke(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/invoke-tresult.html" data-since="1.0.0.0">Invoke&lt;TResult&gt;(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/invokeasync.html" data-since="1.0.0.0">InvokeAsync(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/invokeasync-tresult.html" data-since="1.0.0.0">InvokeAsync&lt;TResult&gt;(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
-    </div>
-  </details>
-  <details data-since="1.0.0.3"><summary><a class="cls" href="IEventAccessor/index.html" data-since="1.0.0.3">IEventAccessor</a></summary>
-    <div class="tree-branch">
-      <a class="meth" href="IEventAccessor/getinvocationlist.html" data-since="1.0.0.3">GetInvocationList()</a>
-      <a class="meth" href="IEventAccessor/add.html" data-since="1.0.0.6">Add(Delegate handler)</a>
-      <a class="meth" href="IEventAccessor/remove.html" data-since="1.0.0.6">Remove(Delegate handler)</a>
-    </div>
-  </details>
-  <div class="ns-label">FluentReflection.Extensions</div>
-  <details data-since="1.0.0.0"><summary><a class="cls" href="ObjectExtensions/index.html" data-since="1.0.0.0">ObjectExtensions</a></summary>
-    <div class="tree-branch">
-      <a class="meth" href="ObjectExtensions/asclass-object.html" data-since="1.0.0.0">AsClass(this object instance)</a>
-      <a class="meth" href="ObjectExtensions/asclass-type.html" data-since="1.0.0.0">AsClass(this Type type)</a>
-      <a class="meth" href="ObjectExtensions/asclass-assembly-string.html" data-since="1.0.0.0">AsClass(this Assembly assembly, string typeName)</a>
-    </div>
-  </details>
+  <a class="home" href="#/">&#127968; Home</a>
+  <div id="sidebar-tree"></div>
 </nav>
-<main>
-  <h2>FluentReflection.NET</h2>
-  <p>An expressive, fluent reflection API for .NET 10 that exposes private, internal, and public
-     members (fields, backing fields, properties, methods, and events) to make unit testing easier —
-     no internal constructors or <code>[InternalsVisibleTo]</code> required.</p>
-
-  <div class="card install">
-    <div class="install-body">
-      <h3>Install from NuGet</h3>
-      <p>Package: <a href="https://www.nuget.org/packages/FluentReflection.NET" target="_blank" rel="noopener">FluentReflection.NET</a></p>
-      
-      <div class="install-tabs">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active">
-            <a href="#dotnet-cli" id="dotnet-cli-tab" class="package-manager-tab" aria-selected="true" tabindex="0" aria-controls="dotnet-cli" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for .NET CLI">.NET CLI</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#package-manager" id="package-manager-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="package-manager" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Package Manager Console">PMC</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#package-reference" id="package-reference-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="package-reference" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for PackageReference">PackageReference</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#package-version" id="package-version-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="package-version" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Central Package Management">CPM</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#paket-cli" id="paket-cli-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="paket-cli" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Paket CLI">Paket CLI</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#script-interactive" id="script-interactive-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="script-interactive" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Script &amp; Interactive">Script &amp; Interactive</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#dotnet-run-file" id="dotnet-run-file-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="dotnet-run-file" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for File-Based Apps">File-Based Apps</a>
-          </li>
-          <li role="presentation" class="">
-            <a href="#cake" id="cake-tab" class="package-manager-tab" aria-selected="false" tabindex="-1" aria-controls="cake" role="tab" data-toggle="tab" title="Switch to tab panel which contains package installation command for Cake">Cake</a>
-          </li>
-        </ul>
-        <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="dotnet-cli">
-            <div class="install-script-row">
-              <pre class="install-script" id="dotnet-cli-0001-text"><span class="install-command-row">dotnet add package FluentReflection.NET</span></pre>
-              <div class="copy-button">
-                <button id="dotnet-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the .NET CLI command" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="package-manager">
-            <div class="install-script-row">
-              <pre class="install-script" id="package-manager-0001-text"><span class="install-command-row">NuGet\Install-Package FluentReflection.NET</span></pre>
-              <div class="copy-button">
-                <button id="package-manager-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PMC command" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="icon-text alert alert-brand-info">
-              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
-              This command is intended to be used within the Package Manager Console in Visual Studio, as it uses the NuGet module's version of <a href="https://docs.microsoft.com/nuget/reference/ps-reference/ps-ref-install-package" target="_blank" rel="noopener">Install-Package</a>.
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="package-reference">
-            <div class="install-script-row">
-              <pre class="install-script" id="package-reference-0001-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" /&gt;</span></pre>
-              <div class="copy-button">
-                <button id="package-reference-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageReference XML node" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="icon-text alert alert-brand-info">
-              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
-              For projects that support <a href="https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files" target="_blank" rel="noopener">PackageReference</a>, copy this XML node into the project file to reference the package.
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="package-version">
-            <div class="install-script-row">
-              <pre class="install-script" id="package-version-0001-text"><span class="install-command-row">&lt;PackageVersion Include="FluentReflection.NET" /&gt;</span></pre>
-              <div class="copy-button">
-                <span class="package-manager-command-header">Directory.Packages.props</span>
-                <button id="package-version-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageVersion XML node" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="install-script-row">
-              <pre class="install-script" id="package-version-0002-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" /&gt;</span></pre>
-              <div class="copy-button">
-                <span class="package-manager-command-header">Project file</span>
-                <button id="package-version-0002-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageVersion XML node" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="icon-text alert alert-brand-info">
-              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
-              For projects that support <a href="https://learn.microsoft.com/en-us/nuget/consume-packages/central-package-management" target="_blank" rel="noopener">Central Package Management (CPM)</a>, copy this XML node into the solution Directory.Packages.props file to version the package.
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="paket-cli">
-            <div class="install-script-row">
-              <pre class="install-script" id="paket-cli-0001-text"><span class="install-command-row">paket add FluentReflection.NET</span></pre>
-              <div class="copy-button">
-                <button id="paket-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Paket CLI command" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="icon-text alert alert-brand-warning" role="alert" aria-live="assertive">
-              <i class="ms-Icon ms-Icon--Warning" aria-hidden="true"></i>
-              The NuGet Team does not provide support for this client. Please contact its <a href="https://fsprojects.github.io/Paket/contact.html" target="_blank" rel="noopener" aria-label="Contact the maintainers of the Paket CLI client">maintainers</a> for support.
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="script-interactive">
-            <div class="install-script-row">
-              <pre class="install-script" id="script-interactive-0001-text"><span class="install-command-row">#r "nuget: FluentReflection.NET"</span></pre>
-              <div class="copy-button">
-                <button id="script-interactive-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Script &amp; Interactive command" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="icon-text alert alert-brand-info">
-              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
-              #r directive can be used in F# Interactive and Polyglot Notebooks. Copy this into the interactive tool or source code of the script to reference the package.
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="dotnet-run-file">
-            <div class="install-script-row">
-              <pre class="install-script" id="dotnet-run-file-0001-text"><span class="install-command-row">#:package FluentReflection.NET</span></pre>
-              <div class="copy-button">
-                <button id="dotnet-run-file-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the File-Based Apps command" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="icon-text alert alert-brand-info">
-              <i class="ms-Icon ms-Icon--Info" aria-hidden="true"></i>
-              #:package directive can be used in C# file-based apps starting in .NET 10 preview 4. Copy this into a .cs file before any lines of code to reference the package.
-            </div>
-          </div>
-          <div role="tabpanel" class="tab-pane" id="cake">
-            <div class="install-script-row">
-              <pre class="install-script" id="cake-0001-text"><span class="install-command-row">#addin nuget:?package=FluentReflection.NET</span></pre>
-              <div class="copy-button">
-                <span class="package-manager-command-header">Install as a Cake Addin</span>
-                <button id="cake-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="install-script-row">
-              <pre class="install-script" id="cake-0002-text"><span class="install-command-row">#tool nuget:?package=FluentReflection.NET</span></pre>
-              <div class="copy-button">
-                <span class="package-manager-command-header">Install as a Cake Tool</span>
-                <button id="cake-0002-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
-                  <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
-                  <span>Copy</span>
-                </button>
-              </div>
-            </div>
-            <div class="icon-text alert alert-brand-warning" role="alert" aria-live="assertive">
-              <i class="ms-Icon ms-Icon--Warning" aria-hidden="true"></i>
-              The NuGet Team does not provide support for this client. Please contact its <a href="https://cakebuild.net/support/nuget" target="_blank" rel="noopener" aria-label="Contact the maintainers of the Cake client">maintainers</a> for support.
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <h2>Types</h2>
-  <table><tr><th>Type</th><th>Kind</th><th>Description</th></tr>
-<tr data-since="1.0.0.0"><td><a href="Class/">Class</a></td><td>Static Class</td><td>Static factory providing entry points into the fluent API.</td></tr>
-<tr data-since="1.0.0.0"><td><a href="IClass/">IClass</a></td><td>Interface</td><td>Fluent wrapper over a class or instance exposing member accessors.</td></tr>
-<tr data-since="1.0.0.0"><td><a href="IFieldAccessor/">IFieldAccessor</a></td><td>Interface</td><td>Reads and writes field and backing-field values.</td></tr>
-<tr data-since="1.0.0.0"><td><a href="IPropertyAccessor/">IPropertyAccessor</a></td><td>Interface</td><td>Reads and writes property and backing-field values.</td></tr>
-<tr data-since="1.0.0.0"><td><a href="IMethodAccessor/">IMethodAccessor</a></td><td>Interface</td><td>Invokes synchronous and asynchronous methods.</td></tr>
-<tr data-since="1.0.0.3"><td><a href="IEventAccessor/">IEventAccessor</a></td><td>Interface</td><td>Inspects, subscribes to, and unsubscribes from events.</td></tr>
-<tr data-since="1.0.0.0"><td><a href="ObjectExtensions/">ObjectExtensions</a></td><td>Static Class</td><td>Extension methods for objects, types, and assemblies.</td></tr>
-  </table>
-
-  <h2>Quick Example</h2>
-  <div class="card">
-    <pre><code>using FluentReflection;
-
-var name   = Class.Of(obj).Property("Name").Get&lt;string&gt;();
-var count  = Class.Of(obj).Field("_count").Get&lt;int&gt;();
-var result = Class.Of(obj).Method("HiddenMethod").Invoke&lt;string&gt;("arg");
-var subs   = Class.Of(obj).Event("Changed").GetInvocationList();</code></pre>
-  </div>
+<main id="content" aria-live="polite">
+  <p class="loading">Loading documentation…</p>
 </main>
 </div>
 <footer>
-  <p>FluentReflection.NET v1.0.0.6 &#183; This documentation is generated for the current release and is updated with every new version.</p>
+  <p>FluentReflection.NET <span id="footer-version"></span> &#183; This documentation is generated for the current release and is updated with every new version.</p>
 </footer>
 </body>
 </html>
