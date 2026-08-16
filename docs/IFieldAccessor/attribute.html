@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AsClass(this Type type) ObjectExtensions | FluentReflection.NET</title>
+<title>Attribute&lt;TAttribute&gt;() IFieldAccessor | FluentReflection.NET</title>
 <link rel="icon" href="../icon.png" type="image/png">
 <link rel="stylesheet" href="../style.css">
 <script src="../js/search.js" defer></script>
@@ -51,12 +51,12 @@
     </div>
   </details>
   <div class="ns-label">FluentReflection.Accessors</div>
-  <details><summary><a class="cls" href="../IFieldAccessor/index.html">IFieldAccessor</a></summary>
+  <details open><summary><a class="cls" href="index.html">IFieldAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="../IFieldAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
-      <a class="meth" href="../IFieldAccessor/get-object.html">Get()</a>
-      <a class="meth" href="../IFieldAccessor/set.html">Set(object? value)</a>
-      <a class="meth" href="../IFieldAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
+      <a class="meth" href="get-tvalue.html">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="get-object.html">Get()</a>
+      <a class="meth" href="set.html">Set(object? value)</a>
+      <a class="meth active" href="attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details><summary><a class="cls" href="../IPropertyAccessor/index.html">IPropertyAccessor</a></summary>
@@ -84,34 +84,36 @@
     </div>
   </details>
   <div class="ns-label">FluentReflection.Extensions</div>
-  <details open><summary><a class="cls" href="index.html">ObjectExtensions</a></summary>
+  <details><summary><a class="cls" href="../ObjectExtensions/index.html">ObjectExtensions</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="asclass-object.html">AsClass(this object instance)</a>
-      <a class="meth active" href="asclass-type.html">AsClass(this Type type)</a>
-      <a class="meth" href="asclass-assembly-string.html">AsClass(this Assembly assembly, string typeName)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-object.html">AsClass(this object instance)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-type.html">AsClass(this Type type)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-assembly-string.html">AsClass(this Assembly assembly, string typeName)</a>
     </div>
   </details>
 </nav>
 <main>
-  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <a href="index.html">ObjectExtensions</a> &#9654; <b>AsClass(this Type type)</b></nav>
-  <h2>AsClass(this Type type) Method</h2>
-  <div class="declaration"><pre><code>public static IClass AsClass(this Type type)</code></pre></div>
-  <p class="overline">ObjectExtensions &#183; Returns: IClass</p>
+  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <a href="index.html">IFieldAccessor</a> &#9654; <b>Attribute&lt;TAttribute&gt;()</b></nav>
+  <h2>Attribute&lt;TAttribute&gt;() Method</h2>
+  <div class="declaration"><pre><code>TAttribute? Attribute&lt;TAttribute&gt;() where TAttribute : Attribute</code></pre></div>
+  <p class="overline">IFieldAccessor &#183; Returns: TAttribute?</p>
 
   <h2>Definition</h2>
-  <p>Wraps a <code>Type</code> into an <code>IClass</code> wrapper for static access.</p>
-  <h2>Parameters</h2>
-  <p class="emphasized"><b>Parameters</b></p>
-  <table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td><code>type</code></td><td>Type</td><td>The type to wrap.</td></tr>
+  <p>Gets the custom attribute of type <code>TAttribute</code> applied to the field, or null if it is not present.</p>
+  <h2>Type Parameters</h2>
+  <p class="emphasized"><b>Type Parameters</b></p>
+  <table><tr><th>Name</th><th>Description</th></tr>
+<tr><td><code>TAttribute</code></td><td>The type of attribute to look up.</td></tr>
   </table>
   <h2>Returns</h2>
-  <p>An <a href="../IClass/index.html">IClass</a> wrapper for static access to <code>type</code>.</p>
+  <p>The attribute instance, or <code>null</code> if the field does not carry the attribute.</p>
 
   <h2>Remarks</h2>
-  <p>Equivalent to <code>Class.Of(type)</code>.</p>
+  <p>Resolves the backing field automatically when the given name refers to an auto-property.</p>
+  <h2>Exceptions</h2>
+  <table><tr><th>Type</th><th>Condition</th></tr><tr><td>MissingFieldException</td><td>The field and its backing field do not exist on the target type.</td></tr></table>
 
-  <p class="back"><a href="index.html">&#8592; Back to ObjectExtensions</a></p>
+  <p class="back"><a href="index.html">&#8592; Back to IFieldAccessor</a></p>
 </main>
 </div>
 </body>

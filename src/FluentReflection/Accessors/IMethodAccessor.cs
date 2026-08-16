@@ -24,46 +24,45 @@ public interface IMethodAccessor
     /// Invokes an asynchronous method returning <see cref="Task{TResult}"/>.
     /// </summary>
     Task<TResult> InvokeAsync<TResult>(params object?[] args);
+
+    /// <summary>
+    /// Gets the custom attribute of type <typeparamref name="TAttribute"/> applied to the method, or null if not present.
+    /// </summary>
+    TAttribute? Attribute<TAttribute>() where TAttribute : Attribute;
 }
 
-internal class MethodAccessor(Type targetType, object? instance, string name) : IMethodAccessor
+internal class MethodAccessor(Type targetType, object? instance, string name) : AccessorBase(targetType, instance, name), IMethodAccessor
 {
-    private System.Reflection.BindingFlags Flags => 
-        System.Reflection.BindingFlags.NonPublic | 
-        System.Reflection.BindingFlags.Public | 
-        (instance is null ? System.Reflection.BindingFlags.Static : System.Reflection.BindingFlags.Instance);
-
-
     public void Invoke(params object?[] args)
     {
         var method = FindMatchingMethod(args);
-        method.Invoke(instance, args);
+        method.Invoke(Instance, args);
     }
 
     public TResult Invoke<TResult>(params object?[] args)
     {
         var method = FindMatchingMethod(args);
-        var result = method.Invoke(instance, args);
+        var result = method.Invoke(Instance, args);
         return (TResult)result!;
     }
 
     public Task InvokeAsync(params object?[] args)
     {
         var method = FindMatchingMethod(args);
-        var result = method.Invoke(instance, args);
+        var result = method.Invoke(Instance, args);
 
         if (result is Task task)
         {
             return task;
         }
 
-        return Task.FromException(new InvalidOperationException($"Method '{name}' did not return a Task."));
+        return Task.FromException(new InvalidOperationException($"Method '{Name}' did not return a Task."));
     }
 
     public async Task<TResult> InvokeAsync<TResult>(params object?[] args)
     {
         var method = FindMatchingMethod(args);
-        var result = method.Invoke(instance, args);
+        var result = method.Invoke(Instance, args);
 
         if (result is Task<TResult> genericTask)
         {
@@ -80,18 +79,32 @@ internal class MethodAccessor(Type targetType, object? instance, string name) : 
             }
         }
 
-        throw new InvalidOperationException($"Method '{name}' did not return a Task<{typeof(TResult).Name}>.");
+        throw new InvalidOperationException($"Method '{Name}' did not return a Task<{typeof(TResult).Name}>.");
     }
 
-    private System.Reflection.MethodInfo FindMatchingMethod(object?[] args)
+    public TAttribute? Attribute<TAttribute>() where TAttribute : Attribute
     {
-        var methods = targetType.GetMethods(Flags)
-            .Where(m => m.Name == name)
+        var methods = TargetType.GetMethods(Flags)
+            .Where(m => m.Name == Name)
             .ToList();
 
         if (methods.Count == 0)
         {
-            throw new MissingMethodException($"Method '{name}' not found on type '{targetType.FullName}'.");
+            throw new MissingMethodException($"Method '{Name}' not found on type '{TargetType.FullName}'.");
+        }
+
+        return GetAttribute<TAttribute>(methods[0]);
+    }
+
+    private System.Reflection.MethodInfo FindMatchingMethod(object?[] args)
+    {
+        var methods = TargetType.GetMethods(Flags)
+            .Where(m => m.Name == Name)
+            .ToList();
+
+        if (methods.Count == 0)
+        {
+            throw new MissingMethodException($"Method '{Name}' not found on type '{TargetType.FullName}'.");
         }
 
         if (methods.Count == 1)

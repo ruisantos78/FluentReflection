@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="documentation-version" content="1.0.0.6">
+<meta name="description" content="FluentReflection.NET v1.0.0.6 API reference. Updated with every release.">
 <title>FluentReflection.NET API Documentation</title>
 <link rel="icon" href="icon.png" type="image/png">
 <link rel="stylesheet" href="style.css">
@@ -15,6 +17,7 @@
     <div>
       <h1>FluentReflection.NET</h1>
       <p>Fluent, intuitive reflection API for .NET 10 unit testing.</p>
+      <p class="version-badge">Documentation for v1.0.0.6</p>
     </div>
   </div>
 </header>
@@ -47,6 +50,7 @@
       <a class="meth" href="IClass/invoke-tresult.html">Invoke&lt;TResult&gt;(string name, params object?[] args)</a>
       <a class="meth" href="IClass/invokeasync.html">InvokeAsync(string name, params object?[] args)</a>
       <a class="meth" href="IClass/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</a>
+      <a class="meth" href="IClass/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <div class="ns-label">FluentReflection.Accessors</div>
@@ -55,6 +59,7 @@
       <a class="meth" href="IFieldAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
       <a class="meth" href="IFieldAccessor/get-object.html">Get()</a>
       <a class="meth" href="IFieldAccessor/set.html">Set(object? value)</a>
+      <a class="meth" href="IFieldAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details><summary><a class="cls" href="IPropertyAccessor/index.html">IPropertyAccessor</a></summary>
@@ -62,6 +67,7 @@
       <a class="meth" href="IPropertyAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
       <a class="meth" href="IPropertyAccessor/get-object.html">Get()</a>
       <a class="meth" href="IPropertyAccessor/set.html">Set(object? value)</a>
+      <a class="meth" href="IPropertyAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details><summary><a class="cls" href="IMethodAccessor/index.html">IMethodAccessor</a></summary>
@@ -70,11 +76,14 @@
       <a class="meth" href="IMethodAccessor/invoke-tresult.html">Invoke&lt;TResult&gt;(params object?[] args)</a>
       <a class="meth" href="IMethodAccessor/invokeasync.html">InvokeAsync(params object?[] args)</a>
       <a class="meth" href="IMethodAccessor/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(params object?[] args)</a>
+      <a class="meth" href="IMethodAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details><summary><a class="cls" href="IEventAccessor/index.html">IEventAccessor</a></summary>
     <div class="tree-branch">
       <a class="meth" href="IEventAccessor/getinvocationlist.html">GetInvocationList()</a>
+      <a class="meth" href="IEventAccessor/add.html">Add(Delegate handler)</a>
+      <a class="meth" href="IEventAccessor/remove.html">Remove(Delegate handler)</a>
     </div>
   </details>
   <div class="ns-label">FluentReflection.Extensions</div>
@@ -127,7 +136,7 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="dotnet-cli">
             <div class="install-script-row">
-              <pre class="install-script" id="dotnet-cli-0001-text"><span class="install-command-row">dotnet add package FluentReflection.NET --version 1.0.0.5</span></pre>
+              <pre class="install-script" id="dotnet-cli-0001-text"><span class="install-command-row">dotnet add package FluentReflection.NET --version 1.0.0.6</span></pre>
               <div class="copy-button">
                 <button id="dotnet-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the .NET CLI command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -138,7 +147,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="package-manager">
             <div class="install-script-row">
-              <pre class="install-script" id="package-manager-0001-text"><span class="install-command-row">NuGet\Install-Package FluentReflection.NET -Version 1.0.0.5</span></pre>
+              <pre class="install-script" id="package-manager-0001-text"><span class="install-command-row">NuGet\Install-Package FluentReflection.NET -Version 1.0.0.6</span></pre>
               <div class="copy-button">
                 <button id="package-manager-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PMC command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -153,7 +162,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="package-reference">
             <div class="install-script-row">
-              <pre class="install-script" id="package-reference-0001-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" Version="1.0.0.5" /&gt;</span></pre>
+              <pre class="install-script" id="package-reference-0001-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" Version="1.0.0.6" /&gt;</span></pre>
               <div class="copy-button">
                 <button id="package-reference-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageReference XML node" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -168,7 +177,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="package-version">
             <div class="install-script-row">
-              <pre class="install-script" id="package-version-0001-text"><span class="install-command-row">&lt;PackageVersion Include="FluentReflection.NET" Version="1.0.0.5" /&gt;</span></pre>
+              <pre class="install-script" id="package-version-0001-text"><span class="install-command-row">&lt;PackageVersion Include="FluentReflection.NET" Version="1.0.0.6" /&gt;</span></pre>
               <div class="copy-button">
                 <span class="package-manager-command-header">Directory.Packages.props</span>
                 <button id="package-version-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageVersion XML node" role="button">
@@ -194,7 +203,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="paket-cli">
             <div class="install-script-row">
-              <pre class="install-script" id="paket-cli-0001-text"><span class="install-command-row">paket add FluentReflection.NET --version 1.0.0.5</span></pre>
+              <pre class="install-script" id="paket-cli-0001-text"><span class="install-command-row">paket add FluentReflection.NET --version 1.0.0.6</span></pre>
               <div class="copy-button">
                 <button id="paket-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Paket CLI command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -209,7 +218,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="script-interactive">
             <div class="install-script-row">
-              <pre class="install-script" id="script-interactive-0001-text"><span class="install-command-row">#r "nuget: FluentReflection.NET, 1.0.0.5"</span></pre>
+              <pre class="install-script" id="script-interactive-0001-text"><span class="install-command-row">#r "nuget: FluentReflection.NET, 1.0.0.6"</span></pre>
               <div class="copy-button">
                 <button id="script-interactive-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Script &amp; Interactive command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -224,7 +233,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="dotnet-run-file">
             <div class="install-script-row">
-              <pre class="install-script" id="dotnet-run-file-0001-text"><span class="install-command-row">#:package FluentReflection.NET@1.0.0.5</span></pre>
+              <pre class="install-script" id="dotnet-run-file-0001-text"><span class="install-command-row">#:package FluentReflection.NET@1.0.0.6</span></pre>
               <div class="copy-button">
                 <button id="dotnet-run-file-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the File-Based Apps command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -239,7 +248,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="cake">
             <div class="install-script-row">
-              <pre class="install-script" id="cake-0001-text"><span class="install-command-row">#addin nuget:?package=FluentReflection.NET&amp;version=1.0.0.5</span></pre>
+              <pre class="install-script" id="cake-0001-text"><span class="install-command-row">#addin nuget:?package=FluentReflection.NET&amp;version=1.0.0.6</span></pre>
               <div class="copy-button">
                 <span class="package-manager-command-header">Install as a Cake Addin</span>
                 <button id="cake-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
@@ -249,7 +258,7 @@
               </div>
             </div>
             <div class="install-script-row">
-              <pre class="install-script" id="cake-0002-text"><span class="install-command-row">#tool nuget:?package=FluentReflection.NET&amp;version=1.0.0.5</span></pre>
+              <pre class="install-script" id="cake-0002-text"><span class="install-command-row">#tool nuget:?package=FluentReflection.NET&amp;version=1.0.0.6</span></pre>
               <div class="copy-button">
                 <span class="package-manager-command-header">Install as a Cake Tool</span>
                 <button id="cake-0002-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
@@ -275,7 +284,7 @@
 <tr><td><a href="IFieldAccessor/">IFieldAccessor</a></td><td>Interface</td><td>Reads and writes field and backing-field values.</td></tr>
 <tr><td><a href="IPropertyAccessor/">IPropertyAccessor</a></td><td>Interface</td><td>Reads and writes property and backing-field values.</td></tr>
 <tr><td><a href="IMethodAccessor/">IMethodAccessor</a></td><td>Interface</td><td>Invokes synchronous and asynchronous methods.</td></tr>
-<tr><td><a href="IEventAccessor/">IEventAccessor</a></td><td>Interface</td><td>Inspects events and their subscribers.</td></tr>
+<tr><td><a href="IEventAccessor/">IEventAccessor</a></td><td>Interface</td><td>Inspects, subscribes to, and unsubscribes from events.</td></tr>
 <tr><td><a href="ObjectExtensions/">ObjectExtensions</a></td><td>Static Class</td><td>Extension methods for objects, types, and assemblies.</td></tr>
   </table>
 
@@ -290,5 +299,8 @@ var subs   = Class.Of(obj).Event("Changed").GetInvocationList();</code></pre>
   </div>
 </main>
 </div>
+<footer>
+  <p>FluentReflection.NET v1.0.0.6 &#183; This documentation is generated for the current release and is updated with every new version.</p>
+</footer>
 </body>
 </html>

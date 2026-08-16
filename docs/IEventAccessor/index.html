@@ -47,6 +47,7 @@
       <a class="meth" href="../IClass/invoke-tresult.html">Invoke&lt;TResult&gt;(string name, params object?[] args)</a>
       <a class="meth" href="../IClass/invokeasync.html">InvokeAsync(string name, params object?[] args)</a>
       <a class="meth" href="../IClass/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</a>
+      <a class="meth" href="../IClass/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <div class="ns-label">FluentReflection.Accessors</div>
@@ -55,6 +56,7 @@
       <a class="meth" href="../IFieldAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
       <a class="meth" href="../IFieldAccessor/get-object.html">Get()</a>
       <a class="meth" href="../IFieldAccessor/set.html">Set(object? value)</a>
+      <a class="meth" href="../IFieldAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details><summary><a class="cls" href="../IPropertyAccessor/index.html">IPropertyAccessor</a></summary>
@@ -62,6 +64,7 @@
       <a class="meth" href="../IPropertyAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
       <a class="meth" href="../IPropertyAccessor/get-object.html">Get()</a>
       <a class="meth" href="../IPropertyAccessor/set.html">Set(object? value)</a>
+      <a class="meth" href="../IPropertyAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details><summary><a class="cls" href="../IMethodAccessor/index.html">IMethodAccessor</a></summary>
@@ -70,6 +73,7 @@
       <a class="meth" href="../IMethodAccessor/invoke-tresult.html">Invoke&lt;TResult&gt;(params object?[] args)</a>
       <a class="meth" href="../IMethodAccessor/invokeasync.html">InvokeAsync(params object?[] args)</a>
       <a class="meth" href="../IMethodAccessor/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(params object?[] args)</a>
+      <a class="meth" href="../IMethodAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details open><summary><a class="cls active" href="index.html">IEventAccessor</a></summary>
@@ -104,6 +108,8 @@
   <h2>Methods</h2>
   <table><tr><th>Name</th><th>Return</th><th>Description</th></tr>
 <tr><td><a href="getinvocationlist.html"><code>GetInvocationList()</code></a></td><td>Delegate[]</td><td>Gets the invocation list of delegates subscribed to the event.</td></tr>
+<tr><td><a href="add.html"><code>Add(Delegate handler)</code></a></td><td>void</td><td>Subscribes a delegate to the event.</td></tr>
+<tr><td><a href="remove.html"><code>Remove(Delegate handler)</code></a></td><td>void</td><td>Unsubscribes a delegate from the event.</td></tr>
   </table>
 
   <p class="back"><a href="../index.html">&#8592; Back to Home</a></p>

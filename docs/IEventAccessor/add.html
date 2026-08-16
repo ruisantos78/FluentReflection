@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AsClass(this Type type) ObjectExtensions | FluentReflection.NET</title>
+<title>Add(Delegate handler) IEventAccessor | FluentReflection.NET</title>
 <link rel="icon" href="../icon.png" type="image/png">
 <link rel="stylesheet" href="../style.css">
 <script src="../js/search.js" defer></script>
@@ -76,42 +76,42 @@
       <a class="meth" href="../IMethodAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
-  <details><summary><a class="cls" href="../IEventAccessor/index.html">IEventAccessor</a></summary>
+  <details open><summary><a class="cls" href="index.html">IEventAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="../IEventAccessor/getinvocationlist.html">GetInvocationList()</a>
-      <a class="meth" href="../IEventAccessor/add.html">Add(Delegate handler)</a>
-      <a class="meth" href="../IEventAccessor/remove.html">Remove(Delegate handler)</a>
+      <a class="meth" href="getinvocationlist.html">GetInvocationList()</a>
+      <a class="meth active" href="add.html">Add(Delegate handler)</a>
+      <a class="meth" href="remove.html">Remove(Delegate handler)</a>
     </div>
   </details>
   <div class="ns-label">FluentReflection.Extensions</div>
-  <details open><summary><a class="cls" href="index.html">ObjectExtensions</a></summary>
+  <details><summary><a class="cls" href="../ObjectExtensions/index.html">ObjectExtensions</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="asclass-object.html">AsClass(this object instance)</a>
-      <a class="meth active" href="asclass-type.html">AsClass(this Type type)</a>
-      <a class="meth" href="asclass-assembly-string.html">AsClass(this Assembly assembly, string typeName)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-object.html">AsClass(this object instance)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-type.html">AsClass(this Type type)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-assembly-string.html">AsClass(this Assembly assembly, string typeName)</a>
     </div>
   </details>
 </nav>
 <main>
-  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <a href="index.html">ObjectExtensions</a> &#9654; <b>AsClass(this Type type)</b></nav>
-  <h2>AsClass(this Type type) Method</h2>
-  <div class="declaration"><pre><code>public static IClass AsClass(this Type type)</code></pre></div>
-  <p class="overline">ObjectExtensions &#183; Returns: IClass</p>
+  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <a href="index.html">IEventAccessor</a> &#9654; <b>Add(Delegate handler)</b></nav>
+  <h2>Add(Delegate handler) Method</h2>
+  <div class="declaration"><pre><code>void Add(Delegate handler)</code></pre></div>
+  <p class="overline">IEventAccessor &#183; Returns: void</p>
 
   <h2>Definition</h2>
-  <p>Wraps a <code>Type</code> into an <code>IClass</code> wrapper for static access.</p>
+  <p>Subscribes the given delegate to the event.</p>
   <h2>Parameters</h2>
   <p class="emphasized"><b>Parameters</b></p>
   <table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
-<tr><td><code>type</code></td><td>Type</td><td>The type to wrap.</td></tr>
+<tr><td><code>handler</code></td><td>Delegate</td><td>The delegate to subscribe.</td></tr>
   </table>
-  <h2>Returns</h2>
-  <p>An <a href="../IClass/index.html">IClass</a> wrapper for static access to <code>type</code>.</p>
 
   <h2>Remarks</h2>
-  <p>Equivalent to <code>Class.Of(type)</code>.</p>
+  <p>Invokes the event's add accessor via reflection, supporting private and non-public add accessors.</p>
+  <h2>Exceptions</h2>
+  <table><tr><th>Type</th><th>Condition</th></tr><tr><td>MissingMemberException</td><td>No event with the given name exists on the target type, or it does not expose an add accessor.</td></tr></table>
 
-  <p class="back"><a href="index.html">&#8592; Back to ObjectExtensions</a></p>
+  <p class="back"><a href="index.html">&#8592; Back to IEventAccessor</a></p>
 </main>
 </div>
 </body>

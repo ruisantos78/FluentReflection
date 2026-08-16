@@ -19,56 +19,63 @@ public interface IPropertyAccessor
     /// Sets the property value.
     /// </summary>
     void Set(object? value);
+
+    /// <summary>
+    /// Gets the custom attribute of type <typeparamref name="TAttribute"/> applied to the property, or null if not present.
+    /// </summary>
+    TAttribute? Attribute<TAttribute>() where TAttribute : Attribute;
 }
 
-internal class PropertyAccessor(Type targetType, object? instance, string name) : IPropertyAccessor
+internal class PropertyAccessor(Type targetType, object? instance, string name) : AccessorBase(targetType, instance, name), IPropertyAccessor
 {
-    private System.Reflection.BindingFlags Flags => 
-        System.Reflection.BindingFlags.NonPublic | 
-        System.Reflection.BindingFlags.Public | 
-        (instance is null ? System.Reflection.BindingFlags.Static : System.Reflection.BindingFlags.Instance);
-
-
     public object? Get() => Get<object?>();
 
     public TValue Get<TValue>()
     {
-        if (targetType.GetProperty(name, Flags) is { } property)
+        if (TargetType.GetProperty(Name, Flags) is { } property)
         {
-            return (TValue)property.GetValue(instance)!;
+            return (TValue)property.GetValue(Instance)!;
         }
 
-        if (targetType.GetField($"<{name}>k__BackingField", Flags) is { } backingField)
+        if (TargetType.GetField($"<{Name}>k__BackingField", Flags) is { } backingField)
         {
-            return (TValue)backingField.GetValue(instance)!;
+            return (TValue)backingField.GetValue(Instance)!;
         }
 
-        throw new MissingMemberException($"Property or backing field '{name}' not found on type '{targetType.FullName}'.");
+        throw new MissingMemberException($"Property or backing field '{Name}' not found on type '{TargetType.FullName}'.");
     }
 
     public void Set(object? value)
     {
-        if (targetType.GetProperty(name, Flags) is { } property)
+        if (TargetType.GetProperty(Name, Flags) is { } property)
         {
             if (property.CanWrite)
             {
-                property.SetValue(instance, value);
+                property.SetValue(Instance, value);
                 return;
             }
         }
 
-        if (targetType.GetField($"<{name}>k__BackingField", Flags) is { } backingField)
+        if (TargetType.GetField($"<{Name}>k__BackingField", Flags) is { } backingField)
         {
-            backingField.SetValue(instance, value);
+            backingField.SetValue(Instance, value);
             return;
         }
 
-        if (targetType.GetProperty(name, Flags) is { } readOnlyProp)
+        if (TargetType.GetProperty(Name, Flags) is { } readOnlyProp)
         {
-            readOnlyProp.SetValue(instance, value);
+            readOnlyProp.SetValue(Instance, value);
             return;
         }
 
-        throw new MissingMemberException($"Property or backing field '{name}' not found on type '{targetType.FullName}'.");
+        throw new MissingMemberException($"Property or backing field '{Name}' not found on type '{TargetType.FullName}'.");
+    }
+
+    public TAttribute? Attribute<TAttribute>() where TAttribute : Attribute
+    {
+        var property = TargetType.GetProperty(Name, Flags)
+            ?? throw new MissingMemberException($"Property '{Name}' not found on type '{TargetType.FullName}'.");
+
+        return GetAttribute<TAttribute>(property);
     }
 }
