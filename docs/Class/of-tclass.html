@@ -93,17 +93,23 @@
   <p class="overline">Class &#183; Returns: IClass</p>
 
   <h2>Definition</h2>
-  <p>Wraps a generic static type.</p>
+  <p>Wraps a generic type to reflect upon its (possibly static) members.</p>
   <h2>Parameters</h2>
   <p class="emphasized"><b>Type Parameters</b></p>
   <table><tr><th>Name</th><th>Description</th></tr>
-<tr><td><code>TClass</code></td><td>The type whose static members are to be reflected upon.</td></tr>
+<tr><td><code>TClass</code></td><td>The type whose members (including static members) are to be reflected upon.</td></tr>
   </table>
   <h2>Returns</h2>
   <p>An <a href="../IClass/index.html">IClass</a> wrapper for <code>TClass</code>.</p>
 
   <h2>Remarks</h2>
   <p>Provides static member access without needing a <code>Type</code> instance.</p>
+
+  <h2>Important Note</h2>
+  <p><b>Static classes cannot be used as generic type arguments in C#</b>, so <code>Of&lt;TClass&gt;()</code> cannot target a static class. To access the static members of a static class, use <a href="of-type.html">Of(Type)</a> with <code>typeof</code> or the <a href="../ObjectExtensions/asclass-type.html">AsClass()</a> extension:</p>
+  <div class="declaration"><pre><code>var wrapper = Class.Of(typeof(MyStaticClass));
+var wrapper = typeof(MyStaticClass).AsClass();</code></pre></div>
+  <p>The generic overload <code>Of&lt;TClass&gt;()</code> only works with non-static classes (e.g. to reflect their static members).</p>
 
   <p class="back"><a href="index.html">&#8592; Back to Class</a></p>
 </main>

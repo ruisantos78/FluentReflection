@@ -18,6 +18,7 @@ A modern, expressive, and fluent .NET 10 framework designed for accessing privat
 - 📡 **Event Invocation Lists**: Inspect event subscribers and delegates on instance or static public/private events via `Event("Name").GetInvocationList()`.
 - 📦 **Type Discovery**: Easily resolve types by name from loaded assemblies or specific assemblies (`Class.From(...)`).
 - 🛠️ **Extension Method Ready**: Use `.AsClass()` directly on any object instance, `Type`, or `Assembly`.
+- ⚠️ **Static Classes**: Because C# does not allow static classes as generic type arguments, `Class.Of<TClass>()` cannot target static classes. Use `Class.Of(typeof(MyStaticClass))` or `typeof(MyStaticClass).AsClass()` to access their static members.
 
 ---
 
@@ -45,9 +46,13 @@ var instanceWrapper = Class.Of(myObject);
 var instanceWrapper = myObject.AsClass();
 
 // Wrap a static class / type
-var staticWrapper = Class.Of<MyStaticClass>();
+// NOTE: static classes cannot be used as generic type arguments (Class.Of<TClass>()),
+// so use typeof or the AsClass() extension instead.
 var staticWrapper = Class.Of(typeof(MyStaticClass));
 var staticWrapper = typeof(MyStaticClass).AsClass();
+
+// The generic overload only works with non-static classes (e.g. to target their static members)
+var staticMembersWrapper = Class.Of<MyRegularClass>();
 
 // Resolve type by name from current AppDomain or Assembly
 var classWrapper = Class.From("MyNamespace.MyPrivateClass");
@@ -99,8 +104,8 @@ Delegate[] delegates = Class.Of(sample).GetInvocationList("OnStateChanged");
 // Via fluent event accessor
 Delegate[] delegates = Class.Of(sample).Event("OnStateChanged").GetInvocationList();
 
-// Works with static events as well
-Delegate[] staticDelegates = Class.Of<MyStaticClass>().GetInvocationList("OnGlobalEvent");
+// Works with static events as well (static classes require typeof / AsClass, not generic)
+Delegate[] staticDelegates = typeof(MyStaticClass).AsClass().GetInvocationList("OnGlobalEvent");
 ```
 
 ---

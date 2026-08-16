@@ -65,14 +65,28 @@ public class EventsTests
         var target = new TargetClass();
         EventHandler handler = (sender, args) => { };
 
-        // Subscribe to private event via reflection field or property/event setter or directly in test
-        var privateEventField = typeof(TargetClass).GetField("OnPrivateEvent", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        privateEventField!.SetValue(target, handler);
+        var eventAccessor = Class.Of(target).Event("OnPrivateEvent");
+        eventAccessor.Add(handler);
 
-        var list = Class.Of(target).Event("OnPrivateEvent").GetInvocationList();
+        var list = eventAccessor.GetInvocationList();
 
         Assert.Single(list);
         Assert.Equal(handler, list[0]);
+    }
+
+    [Fact]
+    public void Remove_UnsubscribesPrivateEventHandler()
+    {
+        var target = new TargetClass();
+        EventHandler handler = (sender, args) => { };
+
+        var eventAccessor = Class.Of(target).Event("OnPrivateEvent");
+        eventAccessor.Add(handler);
+        eventAccessor.Remove(handler);
+
+        var list = eventAccessor.GetInvocationList();
+
+        Assert.Empty(list);
     }
 
     [Fact]

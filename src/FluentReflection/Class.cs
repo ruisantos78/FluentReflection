@@ -27,6 +27,8 @@ public static class Class
 
     /// <summary>
     /// Creates a fluent wrapper for a generic type <typeparamref name="TClass"/>.
+    /// Static classes cannot be used as generic type arguments, so to access static members of a
+    /// static class use <see cref="Of(Type)"/> with <c>typeof</c> or the <c>.AsClass()</c> extension instead.
     /// </summary>
     public static IClass Of<TClass>() => new ClassWrapper(typeof(TClass), null);
 
