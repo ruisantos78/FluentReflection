@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IClass Class | FluentReflection.NET</title>
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../js/search.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <img class="logo" src="../icon.svg" alt="FluentReflection.NET">
+    <div>
+      <h1>FluentReflection.NET</h1>
+      <p>Fluent, intuitive reflection API for .NET 10 unit testing.</p>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidebar">
+  <div class="search-wrap"><input id="search" type="text" placeholder="Search API..." autocomplete="off" aria-label="Search"><div id="search-results" class="search-results" hidden></div></div>
+  <a class="home" href="../index.html">&#127968; Home</a>
+  <div class="ns-label">FluentReflection</div>
+  <details><summary><a class="cls" href="../Class/index.html">Class</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../Class/of-object.html">Of(object instance)</a>
+      <a class="meth" href="../Class/of-type.html">Of(Type type)</a>
+      <a class="meth" href="../Class/of-tclass.html">Of&lt;TClass&gt;()</a>
+      <a class="meth" href="../Class/of-tclass-object.html">Of&lt;TClass&gt;(object instance)</a>
+      <a class="meth" href="../Class/from-string.html">From(string typeName)</a>
+      <a class="meth" href="../Class/from-assembly-string.html">From(Assembly assembly, string typeName)</a>
+    </div>
+  </details>
+  <details open><summary><a class="cls active" href="index.html">IClass</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="property.html">Property(string name)</a>
+      <a class="meth" href="field.html">Field(string name)</a>
+      <a class="meth" href="method.html">Method(string name)</a>
+      <a class="meth" href="event.html">Event(string name)</a>
+      <a class="meth" href="getinvocationlist.html">GetInvocationList(string name)</a>
+      <a class="meth" href="get-tvalue.html">Get&lt;TValue&gt;(string name)</a>
+      <a class="meth" href="get-object.html">Get(string name)</a>
+      <a class="meth" href="set.html">Set(string name, object? value)</a>
+      <a class="meth" href="invoke.html">Invoke(string name, params object?[] args)</a>
+      <a class="meth" href="invoke-tresult.html">Invoke&lt;TResult&gt;(string name, params object?[] args)</a>
+      <a class="meth" href="invokeasync.html">InvokeAsync(string name, params object?[] args)</a>
+      <a class="meth" href="invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</a>
+    </div>
+  </details>
+  <div class="ns-label">FluentReflection.Accessors</div>
+  <details><summary><a class="cls" href="../IFieldAccessor/index.html">IFieldAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IFieldAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="../IFieldAccessor/get-object.html">Get()</a>
+      <a class="meth" href="../IFieldAccessor/set.html">Set(object? value)</a>
+    </div>
+  </details>
+  <details><summary><a class="cls" href="../IPropertyAccessor/index.html">IPropertyAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IPropertyAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="../IPropertyAccessor/get-object.html">Get()</a>
+      <a class="meth" href="../IPropertyAccessor/set.html">Set(object? value)</a>
+    </div>
+  </details>
+  <details><summary><a class="cls" href="../IMethodAccessor/index.html">IMethodAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IMethodAccessor/invoke.html">Invoke(params object?[] args)</a>
+      <a class="meth" href="../IMethodAccessor/invoke-tresult.html">Invoke&lt;TResult&gt;(params object?[] args)</a>
+      <a class="meth" href="../IMethodAccessor/invokeasync.html">InvokeAsync(params object?[] args)</a>
+      <a class="meth" href="../IMethodAccessor/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(params object?[] args)</a>
+    </div>
+  </details>
+  <details><summary><a class="cls" href="../IEventAccessor/index.html">IEventAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IEventAccessor/getinvocationlist.html">GetInvocationList()</a>
+    </div>
+  </details>
+  <div class="ns-label">FluentReflection.Extensions</div>
+  <details><summary><a class="cls" href="../ObjectExtensions/index.html">ObjectExtensions</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../ObjectExtensions/asclass-object.html">AsClass(this object instance)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-type.html">AsClass(this Type type)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-assembly-string.html">AsClass(this Assembly assembly, string typeName)</a>
+    </div>
+  </details>
+</nav>
+<main>
+  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <b>IClass</b></nav>
+  <h2>IClass Class</h2>
+  <div class="declaration"><pre><code>public interface IClass</code></pre></div>
+  <p class="overline">Namespace: FluentReflection &#183; Assembly: FluentReflection.NET</p>
+
+  <h2>Remarks</h2>
+  <p>Fluent interface for interacting with members of a class or instance using reflection.
+       Every entry point returned by the <a href="../Class/index.html">Class</a> factory or
+       <a href="../ObjectExtensions/index.html">ObjectExtensions</a> exposes this contract. It provides
+       direct member access (<code>Get</code>/<code>Set</code>), method invocation
+       (<code>Invoke</code>), and dedicated accessors for properties, fields, methods, and events.</p>
+       <p>Member resolution automatically handles private, internal, public, and compiler-generated
+       backing fields (<code>&lt;Name&gt;k__BackingField</code>), for both instance and static scopes.</p>
+  <h2>Properties</h2>
+  <table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td><code>Type</code></td><td><code></code></td><td>Gets the target type being reflected upon.</td></tr>
+<tr><td><code>object?</code></td><td><code></code></td><td>Gets the target instance object, or <code>null</code> when performing static access.</td></tr>
+  </table>
+  <h2>Properties (Detailed)</h2>
+  <div class="member">
+    <h3 id="TargetType">TargetType</h3>
+    <div class="declaration"><pre><code>Type TargetType { get; }</code></pre></div>
+    <p>Gets the target type being reflected upon.</p>
+    <p class="emphasized"><b>Property Value</b></p>
+    <p>The <code>Type</code> against which members are resolved.</p>
+  </div>
+  <div class="member">
+    <h3 id="TargetInstance">TargetInstance</h3>
+    <div class="declaration"><pre><code>object? TargetInstance { get; }</code></pre></div>
+    <p>Gets the target instance object, or <code>null</code> when performing static access.</p>
+    <p class="emphasized"><b>Property Value</b></p>
+    <p>The underlying object instance, or <code>null</code> for static types.</p>
+  </div>
+
+  <h2>Methods</h2>
+  <table><tr><th>Name</th><th>Return</th><th>Description</th></tr>
+<tr><td><a href="property.html"><code>Property(string name)</code></a></td><td>IPropertyAccessor</td><td>Gets a property accessor.</td></tr>
+<tr><td><a href="field.html"><code>Field(string name)</code></a></td><td>IFieldAccessor</td><td>Gets a field accessor.</td></tr>
+<tr><td><a href="method.html"><code>Method(string name)</code></a></td><td>IMethodAccessor</td><td>Gets a method accessor.</td></tr>
+<tr><td><a href="event.html"><code>Event(string name)</code></a></td><td>IEventAccessor</td><td>Gets an event accessor.</td></tr>
+<tr><td><a href="getinvocationlist.html"><code>GetInvocationList(string name)</code></a></td><td>Delegate[]</td><td>Gets event subscribers by name.</td></tr>
+<tr><td><a href="get-tvalue.html"><code>Get&lt;TValue&gt;(string name)</code></a></td><td>TValue</td><td>Gets a member value by name.</td></tr>
+<tr><td><a href="get-object.html"><code>Get(string name)</code></a></td><td>object?</td><td>Gets a member value as object.</td></tr>
+<tr><td><a href="set.html"><code>Set(string name, object? value)</code></a></td><td>void</td><td>Sets a member value by name.</td></tr>
+<tr><td><a href="invoke.html"><code>Invoke(string name, params object?[] args)</code></a></td><td>void</td><td>Invokes a void-returning method.</td></tr>
+<tr><td><a href="invoke-tresult.html"><code>Invoke&lt;TResult&gt;(string name, params object?[] args)</code></a></td><td>TResult</td><td>Invokes a returning method.</td></tr>
+<tr><td><a href="invokeasync.html"><code>InvokeAsync(string name, params object?[] args)</code></a></td><td>Task</td><td>Invokes an async Task method.</td></tr>
+<tr><td><a href="invokeasync-tresult.html"><code>InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</code></a></td><td>Task&lt;TResult&gt;</td><td>Invokes an async Task&lt;TResult&gt; method.</td></tr>
+  </table>
+
+  <p class="back"><a href="../index.html">&#8592; Back to Home</a></p>
+</main>
+</div>
+</body>
+</html>
