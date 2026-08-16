@@ -24,6 +24,18 @@
 
 When in doubt, run a link check (e.g. grep the sidebar) to confirm no page references a missing file after your edits.
 
+### Version Metadata Rules (always apply when editing docs)
+Every page is versioned so a reader can select a version in the header dropdown and filter out members that did not exist yet. Whenever you add, remove, or update a public type/member, apply these rules:
+
+1. **New type or member** → assign it the **next unreleased version** as its "since" version (the `<Version>` currently in `src/FluentReflection/FluentReflection.csproj`, before it is bumped), e.g. `1.0.0.6`.
+2. **`since-version` meta** → every HTML page must carry `<meta name="since-version" content="X.Y.Z.W">` in its `<head>`, equal to the version that introduced that page's type/member. Index pages use the type's since-version; the home `docs/index.html` uses the latest version.
+3. **`data-since` attributes** → every sidebar type link (`a.cls`), sidebar member link (`a.meth`), type `<details>` block, index table `<tr>`, and detailed member `<div class="member">` must carry `data-since="X.Y.Z.W"` so the JS can hide it for older selections.
+4. **Version list** → keep `docs/js/version.js`'s `VERSIONS` array up to date, always adding the newest version at the front (descending order). New members are introduced at that newest version.
+5. **Removed type/member** → remove its page(s), its sidebar `data-since` links and table rows, and any stale `since-version`/`data-since` references.
+6. **Verified after editing** → confirm: the dropdown loads (`docs/index.html` uses `js/version.js`, subpages use `../js/version.js`), every page has a `since-version` meta, no `data-since` is empty, and no page links to a missing file.
+
+The version rules above complement the release workflow: the since-version of new docs matches the version that will be released from `main` (see Release & Versioning Workflow below).
+
 ## Build, Test & Package Commands
 - **Build Solution**: `dotnet build`
 - **Run Unit Tests**: `dotnet test`
@@ -67,4 +79,3 @@ Follow these step-by-step instructions when releasing a new version. The `<Versi
 6. **Bump Project Version (last step)**: After the tag is created and the package is built, increase the `<Version>` in [`src/FluentReflection/FluentReflection.csproj`](file:///Volumes/Users/ruisantos/Projects/fluent-reflection/src/FluentReflection/FluentReflection.csproj) to the next unreleased version (e.g. `1.0.0.6` → `1.0.0.7`) and commit it, ready for the next release. Any new source change made on `main` from that point on must update the docs (per the Documentation Duty above) and will ship in that next version.
 
 > **Version Consistency**: The `<Version>` on `main` is the version to be released — build and tag it as-is, then increase it only after the release is complete. Keep `src/FluentReflection/FluentReflection.csproj` and the install snippets in `docs/index.html` in sync; the docs version (step 5) is already current on `main` and only needs to be confirmed, then the project version is bumped (step 6).
-

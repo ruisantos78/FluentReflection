@@ -3,12 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="since-version" content="1.0.0.0">
 <meta name="documentation-version" content="1.0.0.6">
 <meta name="description" content="FluentReflection.NET v1.0.0.6 API reference. Updated with every release.">
 <title>FluentReflection.NET API Documentation</title>
 <link rel="icon" href="icon.png" type="image/png">
 <link rel="stylesheet" href="style.css">
 <script src="js/search.js" defer></script>
+<script src="js/version.js" defer></script>
 </head>
 <body>
 <header>
@@ -17,81 +19,83 @@
     <div>
       <h1>FluentReflection.NET</h1>
       <p>Fluent, intuitive reflection API for .NET 10 unit testing.</p>
-      <p class="version-badge">Documentation for v1.0.0.6</p>
-    </div>
+<div class="version-controls">
+    <label for="version-select">Version:</label>
+    <select id="version-select" aria-label="Documentation version"></select>
   </div>
+      </div>
 </header>
 <div class="layout">
 <nav class="sidebar">
   <div class="search-wrap"><input id="search" type="text" placeholder="Search API..." autocomplete="off" aria-label="Search"><div id="search-results" class="search-results" hidden></div></div>
   <a class="home" href="index.html">&#127968; Home</a>
   <div class="ns-label">FluentReflection</div>
-  <details><summary><a class="cls" href="Class/index.html">Class</a></summary>
+  <details data-since="1.0.0.0"><summary><a class="cls" href="Class/index.html" data-since="1.0.0.0">Class</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="Class/of-object.html">Of(object instance)</a>
-      <a class="meth" href="Class/of-type.html">Of(Type type)</a>
-      <a class="meth" href="Class/of-tclass.html">Of&lt;TClass&gt;()</a>
-      <a class="meth" href="Class/of-tclass-object.html">Of&lt;TClass&gt;(object instance)</a>
-      <a class="meth" href="Class/from-string.html">From(string typeName)</a>
-      <a class="meth" href="Class/from-assembly-string.html">From(Assembly assembly, string typeName)</a>
+      <a class="meth" href="Class/of-object.html" data-since="1.0.0.0">Of(object instance)</a>
+      <a class="meth" href="Class/of-type.html" data-since="1.0.0.0">Of(Type type)</a>
+      <a class="meth" href="Class/of-tclass.html" data-since="1.0.0.0">Of&lt;TClass&gt;()</a>
+      <a class="meth" href="Class/of-tclass-object.html" data-since="1.0.0.0">Of&lt;TClass&gt;(object instance)</a>
+      <a class="meth" href="Class/from-string.html" data-since="1.0.0.0">From(string typeName)</a>
+      <a class="meth" href="Class/from-assembly-string.html" data-since="1.0.0.0">From(Assembly assembly, string typeName)</a>
     </div>
   </details>
-  <details><summary><a class="cls" href="IClass/index.html">IClass</a></summary>
+  <details data-since="1.0.0.0"><summary><a class="cls" href="IClass/index.html" data-since="1.0.0.0">IClass</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="IClass/property.html">Property(string name)</a>
-      <a class="meth" href="IClass/field.html">Field(string name)</a>
-      <a class="meth" href="IClass/method.html">Method(string name)</a>
-      <a class="meth" href="IClass/event.html">Event(string name)</a>
-      <a class="meth" href="IClass/getinvocationlist.html">GetInvocationList(string name)</a>
-      <a class="meth" href="IClass/get-tvalue.html">Get&lt;TValue&gt;(string name)</a>
-      <a class="meth" href="IClass/get-object.html">Get(string name)</a>
-      <a class="meth" href="IClass/set.html">Set(string name, object? value)</a>
-      <a class="meth" href="IClass/invoke.html">Invoke(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/invoke-tresult.html">Invoke&lt;TResult&gt;(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/invokeasync.html">InvokeAsync(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</a>
-      <a class="meth" href="IClass/attribute.html">Attribute&lt;TAttribute&gt;()</a>
+      <a class="meth" href="IClass/property.html" data-since="1.0.0.0">Property(string name)</a>
+      <a class="meth" href="IClass/field.html" data-since="1.0.0.0">Field(string name)</a>
+      <a class="meth" href="IClass/method.html" data-since="1.0.0.0">Method(string name)</a>
+      <a class="meth" href="IClass/event.html" data-since="1.0.0.3">Event(string name)</a>
+      <a class="meth" href="IClass/getinvocationlist.html" data-since="1.0.0.3">GetInvocationList(string name)</a>
+      <a class="meth" href="IClass/get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;(string name)</a>
+      <a class="meth" href="IClass/get-object.html" data-since="1.0.0.1">Get(string name)</a>
+      <a class="meth" href="IClass/set.html" data-since="1.0.0.0">Set(string name, object? value)</a>
+      <a class="meth" href="IClass/invoke.html" data-since="1.0.0.0">Invoke(string name, params object?[] args)</a>
+      <a class="meth" href="IClass/invoke-tresult.html" data-since="1.0.0.0">Invoke&lt;TResult&gt;(string name, params object?[] args)</a>
+      <a class="meth" href="IClass/invokeasync.html" data-since="1.0.0.0">InvokeAsync(string name, params object?[] args)</a>
+      <a class="meth" href="IClass/invokeasync-tresult.html" data-since="1.0.0.0">InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</a>
+      <a class="meth" href="IClass/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <div class="ns-label">FluentReflection.Accessors</div>
-  <details><summary><a class="cls" href="IFieldAccessor/index.html">IFieldAccessor</a></summary>
+  <details data-since="1.0.0.0"><summary><a class="cls" href="IFieldAccessor/index.html" data-since="1.0.0.0">IFieldAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="IFieldAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
-      <a class="meth" href="IFieldAccessor/get-object.html">Get()</a>
-      <a class="meth" href="IFieldAccessor/set.html">Set(object? value)</a>
-      <a class="meth" href="IFieldAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
+      <a class="meth" href="IFieldAccessor/get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="IFieldAccessor/get-object.html" data-since="1.0.0.1">Get()</a>
+      <a class="meth" href="IFieldAccessor/set.html" data-since="1.0.0.0">Set(object? value)</a>
+      <a class="meth" href="IFieldAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
-  <details><summary><a class="cls" href="IPropertyAccessor/index.html">IPropertyAccessor</a></summary>
+  <details data-since="1.0.0.0"><summary><a class="cls" href="IPropertyAccessor/index.html" data-since="1.0.0.0">IPropertyAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="IPropertyAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
-      <a class="meth" href="IPropertyAccessor/get-object.html">Get()</a>
-      <a class="meth" href="IPropertyAccessor/set.html">Set(object? value)</a>
-      <a class="meth" href="IPropertyAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
+      <a class="meth" href="IPropertyAccessor/get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="IPropertyAccessor/get-object.html" data-since="1.0.0.1">Get()</a>
+      <a class="meth" href="IPropertyAccessor/set.html" data-since="1.0.0.0">Set(object? value)</a>
+      <a class="meth" href="IPropertyAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
-  <details><summary><a class="cls" href="IMethodAccessor/index.html">IMethodAccessor</a></summary>
+  <details data-since="1.0.0.0"><summary><a class="cls" href="IMethodAccessor/index.html" data-since="1.0.0.0">IMethodAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="IMethodAccessor/invoke.html">Invoke(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/invoke-tresult.html">Invoke&lt;TResult&gt;(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/invokeasync.html">InvokeAsync(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(params object?[] args)</a>
-      <a class="meth" href="IMethodAccessor/attribute.html">Attribute&lt;TAttribute&gt;()</a>
+      <a class="meth" href="IMethodAccessor/invoke.html" data-since="1.0.0.0">Invoke(params object?[] args)</a>
+      <a class="meth" href="IMethodAccessor/invoke-tresult.html" data-since="1.0.0.0">Invoke&lt;TResult&gt;(params object?[] args)</a>
+      <a class="meth" href="IMethodAccessor/invokeasync.html" data-since="1.0.0.0">InvokeAsync(params object?[] args)</a>
+      <a class="meth" href="IMethodAccessor/invokeasync-tresult.html" data-since="1.0.0.0">InvokeAsync&lt;TResult&gt;(params object?[] args)</a>
+      <a class="meth" href="IMethodAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
-  <details><summary><a class="cls" href="IEventAccessor/index.html">IEventAccessor</a></summary>
+  <details data-since="1.0.0.3"><summary><a class="cls" href="IEventAccessor/index.html" data-since="1.0.0.3">IEventAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="IEventAccessor/getinvocationlist.html">GetInvocationList()</a>
-      <a class="meth" href="IEventAccessor/add.html">Add(Delegate handler)</a>
-      <a class="meth" href="IEventAccessor/remove.html">Remove(Delegate handler)</a>
+      <a class="meth" href="IEventAccessor/getinvocationlist.html" data-since="1.0.0.3">GetInvocationList()</a>
+      <a class="meth" href="IEventAccessor/add.html" data-since="1.0.0.6">Add(Delegate handler)</a>
+      <a class="meth" href="IEventAccessor/remove.html" data-since="1.0.0.6">Remove(Delegate handler)</a>
     </div>
   </details>
   <div class="ns-label">FluentReflection.Extensions</div>
-  <details><summary><a class="cls" href="ObjectExtensions/index.html">ObjectExtensions</a></summary>
+  <details data-since="1.0.0.0"><summary><a class="cls" href="ObjectExtensions/index.html" data-since="1.0.0.0">ObjectExtensions</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="ObjectExtensions/asclass-object.html">AsClass(this object instance)</a>
-      <a class="meth" href="ObjectExtensions/asclass-type.html">AsClass(this Type type)</a>
-      <a class="meth" href="ObjectExtensions/asclass-assembly-string.html">AsClass(this Assembly assembly, string typeName)</a>
+      <a class="meth" href="ObjectExtensions/asclass-object.html" data-since="1.0.0.0">AsClass(this object instance)</a>
+      <a class="meth" href="ObjectExtensions/asclass-type.html" data-since="1.0.0.0">AsClass(this Type type)</a>
+      <a class="meth" href="ObjectExtensions/asclass-assembly-string.html" data-since="1.0.0.0">AsClass(this Assembly assembly, string typeName)</a>
     </div>
   </details>
 </nav>
@@ -136,7 +140,7 @@
         <div class="tab-content">
           <div role="tabpanel" class="tab-pane active" id="dotnet-cli">
             <div class="install-script-row">
-              <pre class="install-script" id="dotnet-cli-0001-text"><span class="install-command-row">dotnet add package FluentReflection.NET --version 1.0.0.6</span></pre>
+              <pre class="install-script" id="dotnet-cli-0001-text"><span class="install-command-row">dotnet add package FluentReflection.NET</span></pre>
               <div class="copy-button">
                 <button id="dotnet-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the .NET CLI command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -147,7 +151,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="package-manager">
             <div class="install-script-row">
-              <pre class="install-script" id="package-manager-0001-text"><span class="install-command-row">NuGet\Install-Package FluentReflection.NET -Version 1.0.0.6</span></pre>
+              <pre class="install-script" id="package-manager-0001-text"><span class="install-command-row">NuGet\Install-Package FluentReflection.NET</span></pre>
               <div class="copy-button">
                 <button id="package-manager-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PMC command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -162,7 +166,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="package-reference">
             <div class="install-script-row">
-              <pre class="install-script" id="package-reference-0001-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" Version="1.0.0.6" /&gt;</span></pre>
+              <pre class="install-script" id="package-reference-0001-text"><span class="install-command-row">&lt;PackageReference Include="FluentReflection.NET" /&gt;</span></pre>
               <div class="copy-button">
                 <button id="package-reference-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageReference XML node" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -177,7 +181,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="package-version">
             <div class="install-script-row">
-              <pre class="install-script" id="package-version-0001-text"><span class="install-command-row">&lt;PackageVersion Include="FluentReflection.NET" Version="1.0.0.6" /&gt;</span></pre>
+              <pre class="install-script" id="package-version-0001-text"><span class="install-command-row">&lt;PackageVersion Include="FluentReflection.NET" /&gt;</span></pre>
               <div class="copy-button">
                 <span class="package-manager-command-header">Directory.Packages.props</span>
                 <button id="package-version-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the PackageVersion XML node" role="button">
@@ -203,7 +207,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="paket-cli">
             <div class="install-script-row">
-              <pre class="install-script" id="paket-cli-0001-text"><span class="install-command-row">paket add FluentReflection.NET --version 1.0.0.6</span></pre>
+              <pre class="install-script" id="paket-cli-0001-text"><span class="install-command-row">paket add FluentReflection.NET</span></pre>
               <div class="copy-button">
                 <button id="paket-cli-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Paket CLI command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -218,7 +222,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="script-interactive">
             <div class="install-script-row">
-              <pre class="install-script" id="script-interactive-0001-text"><span class="install-command-row">#r "nuget: FluentReflection.NET, 1.0.0.6"</span></pre>
+              <pre class="install-script" id="script-interactive-0001-text"><span class="install-command-row">#r "nuget: FluentReflection.NET"</span></pre>
               <div class="copy-button">
                 <button id="script-interactive-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Script &amp; Interactive command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -233,7 +237,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="dotnet-run-file">
             <div class="install-script-row">
-              <pre class="install-script" id="dotnet-run-file-0001-text"><span class="install-command-row">#:package FluentReflection.NET@1.0.0.6</span></pre>
+              <pre class="install-script" id="dotnet-run-file-0001-text"><span class="install-command-row">#:package FluentReflection.NET</span></pre>
               <div class="copy-button">
                 <button id="dotnet-run-file-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the File-Based Apps command" role="button">
                   <span class="ms-Icon ms-Icon--Copy" aria-hidden="true"></span>
@@ -248,7 +252,7 @@
           </div>
           <div role="tabpanel" class="tab-pane" id="cake">
             <div class="install-script-row">
-              <pre class="install-script" id="cake-0001-text"><span class="install-command-row">#addin nuget:?package=FluentReflection.NET&amp;version=1.0.0.6</span></pre>
+              <pre class="install-script" id="cake-0001-text"><span class="install-command-row">#addin nuget:?package=FluentReflection.NET</span></pre>
               <div class="copy-button">
                 <span class="package-manager-command-header">Install as a Cake Addin</span>
                 <button id="cake-0001-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
@@ -258,7 +262,7 @@
               </div>
             </div>
             <div class="install-script-row">
-              <pre class="install-script" id="cake-0002-text"><span class="install-command-row">#tool nuget:?package=FluentReflection.NET&amp;version=1.0.0.6</span></pre>
+              <pre class="install-script" id="cake-0002-text"><span class="install-command-row">#tool nuget:?package=FluentReflection.NET</span></pre>
               <div class="copy-button">
                 <span class="package-manager-command-header">Install as a Cake Tool</span>
                 <button id="cake-0002-button" class="btn btn-brand-icon" type="button" aria-label="Copy the Cake command" role="button">
@@ -279,13 +283,13 @@
 
   <h2>Types</h2>
   <table><tr><th>Type</th><th>Kind</th><th>Description</th></tr>
-<tr><td><a href="Class/">Class</a></td><td>Static Class</td><td>Static factory providing entry points into the fluent API.</td></tr>
-<tr><td><a href="IClass/">IClass</a></td><td>Interface</td><td>Fluent wrapper over a class or instance exposing member accessors.</td></tr>
-<tr><td><a href="IFieldAccessor/">IFieldAccessor</a></td><td>Interface</td><td>Reads and writes field and backing-field values.</td></tr>
-<tr><td><a href="IPropertyAccessor/">IPropertyAccessor</a></td><td>Interface</td><td>Reads and writes property and backing-field values.</td></tr>
-<tr><td><a href="IMethodAccessor/">IMethodAccessor</a></td><td>Interface</td><td>Invokes synchronous and asynchronous methods.</td></tr>
-<tr><td><a href="IEventAccessor/">IEventAccessor</a></td><td>Interface</td><td>Inspects, subscribes to, and unsubscribes from events.</td></tr>
-<tr><td><a href="ObjectExtensions/">ObjectExtensions</a></td><td>Static Class</td><td>Extension methods for objects, types, and assemblies.</td></tr>
+<tr data-since="1.0.0.0"><td><a href="Class/">Class</a></td><td>Static Class</td><td>Static factory providing entry points into the fluent API.</td></tr>
+<tr data-since="1.0.0.0"><td><a href="IClass/">IClass</a></td><td>Interface</td><td>Fluent wrapper over a class or instance exposing member accessors.</td></tr>
+<tr data-since="1.0.0.0"><td><a href="IFieldAccessor/">IFieldAccessor</a></td><td>Interface</td><td>Reads and writes field and backing-field values.</td></tr>
+<tr data-since="1.0.0.0"><td><a href="IPropertyAccessor/">IPropertyAccessor</a></td><td>Interface</td><td>Reads and writes property and backing-field values.</td></tr>
+<tr data-since="1.0.0.0"><td><a href="IMethodAccessor/">IMethodAccessor</a></td><td>Interface</td><td>Invokes synchronous and asynchronous methods.</td></tr>
+<tr data-since="1.0.0.3"><td><a href="IEventAccessor/">IEventAccessor</a></td><td>Interface</td><td>Inspects, subscribes to, and unsubscribes from events.</td></tr>
+<tr data-since="1.0.0.0"><td><a href="ObjectExtensions/">ObjectExtensions</a></td><td>Static Class</td><td>Extension methods for objects, types, and assemblies.</td></tr>
   </table>
 
   <h2>Quick Example</h2>
