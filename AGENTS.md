@@ -11,9 +11,9 @@
   - `Extensions/`: Fluent extension methods for member discovery and invocation.
   - `icon.png`: Package icon.
 - **`tests/FluentReflection.Tests/`**: Unit test suite powered by `net10.0` and xUnit.
-- **`docs/`**: Static **single-page application (SPA)** documentation site (mirrors the public API surface). It is pure HTML + client-side JS + JSON — **no build step, no Python/Node at runtime**. GitHub Pages serves `docs/` directly and the browser fetches the JSON data. All content lives in data files:
+- **`docs/`**: Static **single-page application (SPA)** documentation site (mirrors the public API surface). It is pure HTML + client-side JS + JS data — **no build step, no Python/Node at runtime**. GitHub Pages serves `docs/` directly and the browser loads the data via `<script>` tags. All content lives in data files:
   - `docs/index.html` — the single HTML shell (header, version dropdown, sidebar container, content area).
-  - `docs/js/app.js` — the SPA: loads `data/*.json`, builds the sidebar, routes by URL hash (`#/TypeName` and `#/TypeName/member`), renders pages, applies version filtering, and powers search.
+  - `docs/js/app.js` — the SPA: loads `data/*.js`, builds the sidebar, routes by URL hash (`#/TypeName` and `#/TypeName/member`), renders pages, applies version filtering, and powers search.
   - `docs/data/api.js` — registry global `window.FR_API`: `versions` (descending), `current`, `namespaces` (ordered), and `install` metadata.
   - `docs/data/<TypeName>.js` — one file per public type; assigns `window.FR_TYPES["<TypeName>"]` with `name`, `namespace`, `kind`, `since`, `declaration`, `overline`, ordered `sections` (HTML), `members[]`, and `properties[]`.
   - `docs/scripts/convert.py` — dev-time only: one-off migration script that parsed the original static HTML into the JS data. Not used at runtime.
