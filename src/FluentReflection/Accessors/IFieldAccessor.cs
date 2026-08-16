@@ -19,47 +19,55 @@ public interface IFieldAccessor
     /// Sets the field value.
     /// </summary>
     void Set(object? value);
+
+    /// <summary>
+    /// Gets the custom attribute of type <typeparamref name="TAttribute"/> applied to the field, or null if not present.
+    /// </summary>
+    TAttribute? Attribute<TAttribute>() where TAttribute : Attribute;
 }
 
-internal class FieldAccessor(Type targetType, object? instance, string name) : IFieldAccessor
+internal class FieldAccessor(Type targetType, object? instance, string name) : AccessorBase(targetType, instance, name), IFieldAccessor
 {
-    private System.Reflection.BindingFlags Flags => 
-        System.Reflection.BindingFlags.NonPublic | 
-        System.Reflection.BindingFlags.Public | 
-        (instance is null ? System.Reflection.BindingFlags.Static : System.Reflection.BindingFlags.Instance);
-
-
     public object? Get() => Get<object?>();
 
     public TValue Get<TValue>()
     {
-        if (targetType.GetField(name, Flags) is { } field)
+        if (TargetType.GetField(Name, Flags) is { } field)
         {
-            return (TValue)field.GetValue(instance)!;
+            return (TValue)field.GetValue(Instance)!;
         }
 
-        if (targetType.GetField($"<{name}>k__BackingField", Flags) is { } backingField)
+        if (TargetType.GetField($"<{Name}>k__BackingField", Flags) is { } backingField)
         {
-            return (TValue)backingField.GetValue(instance)!;
+            return (TValue)backingField.GetValue(Instance)!;
         }
 
-        throw new MissingFieldException($"Field '{name}' not found on type '{targetType.FullName}'.");
+        throw new MissingFieldException($"Field '{Name}' not found on type '{TargetType.FullName}'.");
     }
 
     public void Set(object? value)
     {
-        if (targetType.GetField(name, Flags) is { } field)
+        if (TargetType.GetField(Name, Flags) is { } field)
         {
-            field.SetValue(instance, value);
+            field.SetValue(Instance, value);
             return;
         }
 
-        if (targetType.GetField($"<{name}>k__BackingField", Flags) is { } backingField)
+        if (TargetType.GetField($"<{Name}>k__BackingField", Flags) is { } backingField)
         {
-            backingField.SetValue(instance, value);
+            backingField.SetValue(Instance, value);
             return;
         }
 
-        throw new MissingFieldException($"Field '{name}' not found on type '{targetType.FullName}'.");
+        throw new MissingFieldException($"Field '{Name}' not found on type '{TargetType.FullName}'.");
+    }
+
+    public TAttribute? Attribute<TAttribute>() where TAttribute : Attribute
+    {
+        var field = TargetType.GetField(Name, Flags)
+            ?? TargetType.GetField($"<{Name}>k__BackingField", Flags)
+            ?? throw new MissingFieldException($"Field '{Name}' not found on type '{TargetType.FullName}'.");
+
+        return GetAttribute<TAttribute>(field);
     }
 }

@@ -76,4 +76,9 @@ public interface IClass
     /// Invokes an asynchronous Task&lt;TResult&gt; method by name with optional arguments.
     /// </summary>
     Task<TResult> InvokeAsync<TResult>(string name, params object?[] args);
+
+    /// <summary>
+    /// Gets the custom attribute of type <typeparamref name="TAttribute"/> applied to the target type, or null if not present.
+    /// </summary>
+    TAttribute? Attribute<TAttribute>() where TAttribute : Attribute;
 }

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="since-version" content="1.0.0.0">
-<title>Get&lt;TValue&gt;() IPropertyAccessor | FluentReflection.NET</title>
+<meta name="since-version" content="1.0.0.6">
+<title>Remove(Delegate handler) IEventAccessor | FluentReflection.NET</title>
 <link rel="icon" href="../icon.png" type="image/png">
 <link rel="stylesheet" href="../style.css">
 <script src="../js/search.js" defer></script>
@@ -65,11 +65,12 @@
       <a class="meth" href="../IFieldAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
-  <details open data-since="1.0.0.0"><summary><a class="cls" href="index.html" data-since="1.0.0.0">IPropertyAccessor</a></summary>
+  <details data-since="1.0.0.0"><summary><a class="cls" href="../IPropertyAccessor/index.html" data-since="1.0.0.0">IPropertyAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth active" href="get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;()</a>
-      <a class="meth" href="get-object.html" data-since="1.0.0.1">Get()</a>
-      <a class="meth" href="set.html" data-since="1.0.0.0">Set(object? value)</a>
+      <a class="meth" href="../IPropertyAccessor/get-tvalue.html" data-since="1.0.0.0">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="../IPropertyAccessor/get-object.html" data-since="1.0.0.1">Get()</a>
+      <a class="meth" href="../IPropertyAccessor/set.html" data-since="1.0.0.0">Set(object? value)</a>
+      <a class="meth" href="../IPropertyAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
   <details data-since="1.0.0.0"><summary><a class="cls" href="../IMethodAccessor/index.html" data-since="1.0.0.0">IMethodAccessor</a></summary>
@@ -81,11 +82,11 @@
       <a class="meth" href="../IMethodAccessor/attribute.html" data-since="1.0.0.6">Attribute&lt;TAttribute&gt;()</a>
     </div>
   </details>
-  <details data-since="1.0.0.3"><summary><a class="cls" href="../IEventAccessor/index.html" data-since="1.0.0.3">IEventAccessor</a></summary>
+  <details open data-since="1.0.0.3"><summary><a class="cls" href="index.html" data-since="1.0.0.3">IEventAccessor</a></summary>
     <div class="tree-branch">
-      <a class="meth" href="../IEventAccessor/getinvocationlist.html" data-since="1.0.0.3">GetInvocationList()</a>
-      <a class="meth" href="../IEventAccessor/add.html" data-since="1.0.0.6">Add(Delegate handler)</a>
-      <a class="meth" href="../IEventAccessor/remove.html" data-since="1.0.0.6">Remove(Delegate handler)</a>
+      <a class="meth" href="getinvocationlist.html" data-since="1.0.0.3">GetInvocationList()</a>
+      <a class="meth" href="add.html" data-since="1.0.0.6">Add(Delegate handler)</a>
+      <a class="meth active" href="remove.html" data-since="1.0.0.6">Remove(Delegate handler)</a>
     </div>
   </details>
   <div class="ns-label">FluentReflection.Extensions</div>
@@ -98,27 +99,25 @@
   </details>
 </nav>
 <main>
-  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <a href="index.html">IPropertyAccessor</a> &#9654; <b>Get&lt;TValue&gt;()</b></nav>
-  <h2>Get&lt;TValue&gt;() Method</h2>
-  <div class="declaration"><pre><code>TValue Get&lt;TValue&gt;()</code></pre></div>
-  <p class="overline">IPropertyAccessor &#183; Returns: TValue</p>
+  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <a href="index.html">IEventAccessor</a> &#9654; <b>Remove(Delegate handler)</b></nav>
+  <h2>Remove(Delegate handler) Method</h2>
+  <div class="declaration"><pre><code>void Remove(Delegate handler)</code></pre></div>
+  <p class="overline">IEventAccessor &#183; Returns: void</p>
 
   <h2>Definition</h2>
-  <p>Gets the property value cast to <code>TValue</code>.</p>
+  <p>Unsubscribes the given delegate from the event.</p>
   <h2>Parameters</h2>
-  <p class="emphasized"><b>Type Parameters</b></p>
-  <table><tr><th>Name</th><th>Description</th></tr>
-<tr><td><code>TValue</code></td><td>The type to cast the property value to.</td></tr>
+  <p class="emphasized"><b>Parameters</b></p>
+  <table><tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td><code>handler</code></td><td>Delegate</td><td>The delegate to unsubscribe.</td></tr>
   </table>
-  <h2>Returns</h2>
-  <p>The property value cast to <code>TValue</code>.</p>
 
   <h2>Remarks</h2>
-  <p>First looks for a direct property, then falls back to the property's compiler-generated backing field (<code>&lt;Name&gt;k__BackingField</code>).</p>
+  <p>Invokes the event's remove accessor via reflection, supporting private and non-public remove accessors.</p>
   <h2>Exceptions</h2>
-  <table><tr><th>Type</th><th>Condition</th></tr><tr><td>MissingMemberException</td><td>No property or backing field exists on the target type.</td></tr></table>
+  <table><tr><th>Type</th><th>Condition</th></tr><tr><td>MissingMemberException</td><td>No event with the given name exists on the target type, or it does not expose a remove accessor.</td></tr></table>
 
-  <p class="back"><a href="index.html">&#8592; Back to IPropertyAccessor</a></p>
+  <p class="back"><a href="index.html">&#8592; Back to IEventAccessor</a></p>
 </main>
 </div>
 </body>

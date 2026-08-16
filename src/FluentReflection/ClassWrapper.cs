@@ -88,4 +88,6 @@ internal class ClassWrapper : IClass
     public Task InvokeAsync(string name, params object?[] args) => Method(name).InvokeAsync(args);
 
     public Task<TResult> InvokeAsync<TResult>(string name, params object?[] args) => Method(name).InvokeAsync<TResult>(args);
+
+    public TAttribute? Attribute<TAttribute>() where TAttribute : Attribute => System.Reflection.CustomAttributeExtensions.GetCustomAttribute<TAttribute>(TargetType);
 }

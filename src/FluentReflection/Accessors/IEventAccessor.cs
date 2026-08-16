@@ -12,6 +12,18 @@ public interface IEventAccessor
     /// </summary>
     /// <returns>An array of delegates representing the event subscribers, or an empty array if there are no subscribers.</returns>
     Delegate[] GetInvocationList();
+
+    /// <summary>
+    /// Subscribes the given delegate to the event.
+    /// </summary>
+    /// <param name="handler">The delegate to subscribe.</param>
+    void Add(Delegate handler);
+
+    /// <summary>
+    /// Unsubscribes the given delegate from the event.
+    /// </summary>
+    /// <param name="handler">The delegate to unsubscribe.</param>
+    void Remove(Delegate handler);
 }
 
 internal class EventAccessor(Type targetType, object? instance, string name) : IEventAccessor
@@ -62,6 +74,28 @@ internal class EventAccessor(Type targetType, object? instance, string name) : I
             current = current.BaseType;
         }
         return null;
+    }
+
+    public void Add(Delegate handler)
+    {
+        var eventInfo = GetEventInfo(targetType, name)
+            ?? throw new MissingMemberException($"Event '{name}' not found on type '{targetType.FullName}'.");
+
+        var addMethod = eventInfo.GetAddMethod(true)
+            ?? throw new MissingMemberException($"Event '{name}' does not expose an add accessor.");
+
+        addMethod.Invoke(instance, [handler]);
+    }
+
+    public void Remove(Delegate handler)
+    {
+        var eventInfo = GetEventInfo(targetType, name)
+            ?? throw new MissingMemberException($"Event '{name}' not found on type '{targetType.FullName}'.");
+
+        var removeMethod = eventInfo.GetRemoveMethod(true)
+            ?? throw new MissingMemberException($"Event '{name}' does not expose a remove accessor.");
+
+        removeMethod.Invoke(instance, [handler]);
     }
 
     private EventInfo? GetEventInfo(Type type, string eventName)
