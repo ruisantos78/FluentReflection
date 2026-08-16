@@ -30,3 +30,5 @@ project.assets.json
 .DS_Store?
 ehthumbs.db
 Thumbs.db
+src/FluentReflection/obj/
+tests/FluentReflection.Tests/obj/
