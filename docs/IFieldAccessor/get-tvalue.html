@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get&lt;TValue&gt;() IFieldAccessor | FluentReflection.NET</title>
+<link rel="icon" href="../icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<script src="../js/search.js" defer></script>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <img class="logo" src="../icon.svg" alt="FluentReflection.NET">
+    <div>
+      <h1>FluentReflection.NET</h1>
+      <p>Fluent, intuitive reflection API for .NET 10 unit testing.</p>
+    </div>
+  </div>
+</header>
+<div class="layout">
+<nav class="sidebar">
+  <div class="search-wrap"><input id="search" type="text" placeholder="Search API..." autocomplete="off" aria-label="Search"><div id="search-results" class="search-results" hidden></div></div>
+  <a class="home" href="../index.html">&#127968; Home</a>
+  <div class="ns-label">FluentReflection</div>
+  <details><summary><a class="cls" href="../Class/index.html">Class</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../Class/of-object.html">Of(object instance)</a>
+      <a class="meth" href="../Class/of-type.html">Of(Type type)</a>
+      <a class="meth" href="../Class/of-tclass.html">Of&lt;TClass&gt;()</a>
+      <a class="meth" href="../Class/of-tclass-object.html">Of&lt;TClass&gt;(object instance)</a>
+      <a class="meth" href="../Class/from-string.html">From(string typeName)</a>
+      <a class="meth" href="../Class/from-assembly-string.html">From(Assembly assembly, string typeName)</a>
+    </div>
+  </details>
+  <details><summary><a class="cls" href="../IClass/index.html">IClass</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IClass/property.html">Property(string name)</a>
+      <a class="meth" href="../IClass/field.html">Field(string name)</a>
+      <a class="meth" href="../IClass/method.html">Method(string name)</a>
+      <a class="meth" href="../IClass/event.html">Event(string name)</a>
+      <a class="meth" href="../IClass/getinvocationlist.html">GetInvocationList(string name)</a>
+      <a class="meth" href="../IClass/get-tvalue.html">Get&lt;TValue&gt;(string name)</a>
+      <a class="meth" href="../IClass/get-object.html">Get(string name)</a>
+      <a class="meth" href="../IClass/set.html">Set(string name, object? value)</a>
+      <a class="meth" href="../IClass/invoke.html">Invoke(string name, params object?[] args)</a>
+      <a class="meth" href="../IClass/invoke-tresult.html">Invoke&lt;TResult&gt;(string name, params object?[] args)</a>
+      <a class="meth" href="../IClass/invokeasync.html">InvokeAsync(string name, params object?[] args)</a>
+      <a class="meth" href="../IClass/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(string name, params object?[] args)</a>
+    </div>
+  </details>
+  <div class="ns-label">FluentReflection.Accessors</div>
+  <details open><summary><a class="cls" href="index.html">IFieldAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth active" href="get-tvalue.html">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="get-object.html">Get()</a>
+      <a class="meth" href="set.html">Set(object? value)</a>
+    </div>
+  </details>
+  <details><summary><a class="cls" href="../IPropertyAccessor/index.html">IPropertyAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IPropertyAccessor/get-tvalue.html">Get&lt;TValue&gt;()</a>
+      <a class="meth" href="../IPropertyAccessor/get-object.html">Get()</a>
+      <a class="meth" href="../IPropertyAccessor/set.html">Set(object? value)</a>
+    </div>
+  </details>
+  <details><summary><a class="cls" href="../IMethodAccessor/index.html">IMethodAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IMethodAccessor/invoke.html">Invoke(params object?[] args)</a>
+      <a class="meth" href="../IMethodAccessor/invoke-tresult.html">Invoke&lt;TResult&gt;(params object?[] args)</a>
+      <a class="meth" href="../IMethodAccessor/invokeasync.html">InvokeAsync(params object?[] args)</a>
+      <a class="meth" href="../IMethodAccessor/invokeasync-tresult.html">InvokeAsync&lt;TResult&gt;(params object?[] args)</a>
+    </div>
+  </details>
+  <details><summary><a class="cls" href="../IEventAccessor/index.html">IEventAccessor</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../IEventAccessor/getinvocationlist.html">GetInvocationList()</a>
+    </div>
+  </details>
+  <div class="ns-label">FluentReflection.Extensions</div>
+  <details><summary><a class="cls" href="../ObjectExtensions/index.html">ObjectExtensions</a></summary>
+    <div class="tree-branch">
+      <a class="meth" href="../ObjectExtensions/asclass-object.html">AsClass(this object instance)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-type.html">AsClass(this Type type)</a>
+      <a class="meth" href="../ObjectExtensions/asclass-assembly-string.html">AsClass(this Assembly assembly, string typeName)</a>
+    </div>
+  </details>
+</nav>
+<main>
+  <nav class="breadcrumb"><a href="../index.html">Home</a> &#9654; <a href="index.html">IFieldAccessor</a> &#9654; <b>Get&lt;TValue&gt;()</b></nav>
+  <h2>Get&lt;TValue&gt;() Method</h2>
+  <div class="declaration"><pre><code>TValue Get&lt;TValue&gt;()</code></pre></div>
+  <p class="overline">IFieldAccessor &#183; Returns: TValue</p>
+
+  <h2>Definition</h2>
+  <p>Gets the field value cast to <code>TValue</code>.</p>
+  <h2>Parameters</h2>
+  <p class="emphasized"><b>Type Parameters</b></p>
+  <table><tr><th>Name</th><th>Description</th></tr>
+<tr><td><code>TValue</code></td><td>The type to cast the field value to.</td></tr>
+  </table>
+  <h2>Returns</h2>
+  <p>The field value cast to <code>TValue</code>.</p>
+
+  <h2>Remarks</h2>
+  <p>Falls back to the compiler-generated backing field (<code>&lt;Name&gt;k__BackingField</code>) when no direct field is found.</p>
+  <h2>Exceptions</h2>
+  <table><tr><th>Type</th><th>Condition</th></tr><tr><td>MissingFieldException</td><td>The field and its backing field do not exist on the target type.</td></tr></table>
+
+  <p class="back"><a href="index.html">&#8592; Back to IFieldAccessor</a></p>
+</main>
+</div>
+</body>
+</html>
