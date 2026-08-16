@@ -51,6 +51,7 @@ The version rules above complement the release workflow: the since-version of ne
 - Package ID: `FluentReflection.NET`
 - Always verify `icon.png` is included when updating NuGet metadata in `FluentReflection.csproj`.
 - Ensure all unit tests pass via `dotnet test` prior to bumping version or creating release tags.
+- **GitHub Packages publishing**: The `.github/workflows/publish.yml` workflow publishes the package to the GitHub Packages NuGet registry (`https://nuget.pkg.github.com/ruisantos78/index.json`) automatically when a version tag (`v*`) is pushed. It uses the `GITHUB_TOKEN` (no PAT needed), builds/tests/packs in Release, and pushes the `.nupkg`. The package is private by default on GitHub Packages — change visibility via repo → Packages → `FluentReflection.NET` → Package settings. The `RepositoryUrl` in `FluentReflection.csproj` auto-links the package to the `ruisantos78/FluentReflection` repo.
 
 ## Release & Versioning Workflow
 Follow these step-by-step instructions when releasing a new version. The `<Version>` already on `main` is the version that gets released; it is increased only as the final step.
